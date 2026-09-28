@@ -1,0 +1,415 @@
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 8
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: mupc
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 8
+  Activity optim: gd
+  Activity lr: 0.5
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 0
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 8
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: mupc
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 8
+  Activity optim: gd
+  Activity lr: 0.5
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 1
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 8
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: mupc
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 8
+  Activity optim: gd
+  Activity lr: 0.5
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 2
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 8
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: sp
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 8
+  Activity optim: gd
+  Activity lr: 0.01
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 0
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 8
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: sp
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 8
+  Activity optim: gd
+  Activity lr: 0.01
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 1
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 8
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: sp
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 8
+  Activity optim: gd
+  Activity lr: 0.01
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 2
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 16
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: mupc
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 16
+  Activity optim: gd
+  Activity lr: 0.5
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 0
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 16
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: mupc
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 16
+  Activity optim: gd
+  Activity lr: 0.5
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 1
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 16
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: mupc
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 16
+  Activity optim: gd
+  Activity lr: 0.5
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 2
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 16
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: sp
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 16
+  Activity optim: gd
+  Activity lr: 0.01
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 0
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 16
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: sp
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 16
+  Activity optim: gd
+  Activity lr: 0.01
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 1
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 16
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: sp
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 16
+  Activity optim: gd
+  Activity lr: 0.01
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 2
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 32
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: mupc
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 32
+  Activity optim: gd
+  Activity lr: 0.5
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 0
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 32
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: mupc
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 32
+  Activity optim: gd
+  Activity lr: 0.5
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 1
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 32
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: mupc
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 32
+  Activity optim: gd
+  Activity lr: 0.5
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 2
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 32
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: sp
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 32
+  Activity optim: gd
+  Activity lr: 0.01
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 0
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 32
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: sp
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 32
+  Activity optim: gd
+  Activity lr: 0.01
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 1
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 32
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: sp
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 32
+  Activity optim: gd
+  Activity lr: 0.01
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 2
+
+stopped official fig1 job after H=32 at 2026-09-28T19:38:31Z

@@ -1,0 +1,4 @@
+activity_lr,iteration,max_infer_iters,method,n_hidden,param,param_lr,path,seed,test_acc
+0.5,300,8,,8,lr_0.1,0.1,MNIST/mse_loss/width_512/8_n_hidden/relu/skips/standard_gauss_weight_init/mupc_param/param_optim_adam/param_lr_0.1/batch_size_64/8_max_infer_iters/activity_optim_gd/activity_lr_0.5/activity_decay_0/weight_decay_0/spectral_penalty_0/1_epochs,0,94.74158477783203
+0.5,600,8,,8,lr_0.1,0.1,MNIST/mse_loss/width_512/8_n_hidden/relu/skips/standard_gauss_weight_init/mupc_param/param_optim_adam/param_lr_0.1/batch_size_64/8_max_infer_iters/activity_optim_gd/activity_lr_0.5/activity_decay_0/weight_decay_0/spectral_penalty_0/1_epochs,0,96.23397827148438
+0.5,900,8,,8,lr_0.1,0.1,MNIST/mse_loss/width_512/8_n_hidden/relu/skips/standard_gauss_weight_init/mupc_param/param_optim_adam/param_lr_0.1/batch_size_64/8_max_infer_iters/activity_optim_gd/activity_lr_0.5/activity_decay_0/weight_decay_0/spectral_penalty_0/1_epochs,0,96.78485870361328

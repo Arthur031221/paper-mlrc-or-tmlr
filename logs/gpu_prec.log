@@ -1,0 +1,15 @@
+plr 0.1 alr 0.5 seed 0: acc [8.944311141967773] stop no_learning 28.6 s
+precision default done
+plr 0.1 alr 0.5 seed 0: acc [94.79166412353516, 96.39423370361328, 96.88501739501953] stop None 17.4 s
+precision highest done
+plr 0.1 alr 0.5 seed 1: acc [9.825721740722656] stop no_learning 25.0 s
+plr 0.1 alr 0.5 seed 2: acc [10.106169700622559] stop no_learning 2.6 s
+plr 0.1 alr 0.5 seed 1: acc [94.20072174072266, 96.11378479003906, 96.73477935791016] stop None 15.8 s
+plr 0.1 alr 0.5 seed 2: acc [95.0821304321289, 96.39423370361328, 96.53445434570312] stop None 7.9 s
+plr 0.1 alr 0.5 seed 0: acc [10.326522827148438] stop no_learning 19.2 s
+plr 0.1 alr 0.5 seed 1: acc [11.328125] stop no_learning 2.7 s
+plr 0.1 alr 0.5 seed 2: acc [10.056089401245117] stop no_learning 2.4 s
+plr 0.1 alr 0.5 seed 0: acc [94.89183044433594, 96.3241195678711, 96.88501739501953] stop None 13.4 s
+plr 0.1 alr 0.5 seed 1: acc [94.29086303710938, 96.07372283935547, 96.72476196289062] stop None 7.6 s
+plr 0.1 alr 0.5 seed 2: acc [94.97195434570312, 96.36418151855469, 96.75480651855469] stop None 6.2 s
+gpu_prec done

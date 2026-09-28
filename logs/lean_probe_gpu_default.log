@@ -1,0 +1,16 @@
+plr 0.1 alr 0.5 seed 0: acc [15.124198913574219, 8.493589401245117] stop no_learning 38.5 s
+plr 0.1 alr 0.5 seed 1: acc [10.09615421295166] stop no_learning 3.6 s
+plr 0.1 alr 0.5 seed 2: acc [13.952323913574219] stop no_learning 3.9 s
+H=8 mupc wall 59.56 s
+plr 0.1 alr 0.01 seed 0: acc [11.638622283935547] stop no_learning 38.0 s
+plr 0.1 alr 0.01 seed 1: acc [9.975961685180664] stop no_learning 4.2 s
+plr 0.1 alr 0.01 seed 2: acc [9.364984512329102] stop no_learning 4.4 s
+H=8 sp wall 64.43 s
+plr 0.1 alr 0.5 seed 0: acc [10.276442527770996] stop no_learning 38.7 s
+plr 0.1 alr 0.5 seed 1: acc [9.825721740722656] stop no_learning 4.0 s
+plr 0.1 alr 0.5 seed 2: acc [9.795673370361328] stop no_learning 5.2 s
+H=16 mupc wall 65.33 s
+plr 0.1 alr 0.01 seed 0: acc [] stop diverged 30.4 s
+plr 0.1 alr 0.01 seed 1: acc [] stop diverged 0.1 s
+plr 0.1 alr 0.01 seed 2: acc [] stop diverged 0.1 s
+H=16 sp wall 48.81 s

@@ -1,0 +1,28 @@
+font.family: sans-serif
+font.sans-serif: Helvetica, Arial, DejaVu Sans
+font.size: 7
+axes.titlesize: 7
+axes.labelsize: 7
+xtick.labelsize: 6
+ytick.labelsize: 6
+legend.fontsize: 6
+axes.linewidth: 0.5
+axes.spines.top: False
+axes.spines.right: False
+xtick.direction: out
+ytick.direction: out
+xtick.major.width: 0.5
+ytick.major.width: 0.5
+xtick.major.size: 2.5
+ytick.major.size: 2.5
+lines.linewidth: 1.0
+lines.markersize: 3
+axes.prop_cycle: cycler('color', ['0072B2', 'E69F00', '009E73', 'D55E00', '56B4E9', 'CC79A7', 'F0E442', '000000'])
+figure.figsize: 3.5, 2.4
+figure.dpi: 150
+savefig.dpi: 300
+savefig.bbox: tight
+savefig.format: pdf
+pdf.fonttype: 42
+legend.frameon: False
+axes.grid: False

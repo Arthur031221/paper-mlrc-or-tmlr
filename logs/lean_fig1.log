@@ -1,0 +1,78 @@
+plr 0.1 alr 0.5 seed 0: acc [94.79166412353516, 96.39423370361328, 96.88501739501953] stop None 24.9 s
+plr 0.1 alr 0.5 seed 1: acc [94.20072174072266, 96.11378479003906, 96.73477935791016] stop None 7.2 s
+plr 0.1 alr 0.5 seed 2: acc [95.0821304321289, 96.39423370361328, 96.53445434570312] stop None 6.7 s
+plr 0.1 alr 0.01 seed 0: acc [11.348156929016113] stop no_learning 6.2 s
+plr 0.1 alr 0.01 seed 1: acc [10.09615421295166] stop no_learning 2.5 s
+plr 0.1 alr 0.01 seed 2: acc [11.358173370361328] stop no_learning 5.6 s
+plr 0.1 alr 0.5 seed 0: acc [94.89183044433594, 96.3241195678711, 96.88501739501953] stop None 10.9 s
+plr 0.1 alr 0.5 seed 1: acc [94.29086303710938, 96.07372283935547, 96.72476196289062] stop None 6.7 s
+plr 0.1 alr 0.5 seed 2: acc [94.97195434570312, 96.36418151855469, 96.75480651855469] stop None 7.5 s
+plr 0.1 alr 0.01 seed 0: acc [] stop diverged 4.2 s
+plr 0.1 alr 0.01 seed 1: acc [] stop diverged 0.1 s
+plr 0.1 alr 0.01 seed 2: acc [] stop diverged 0.1 s
+plr 0.1 alr 0.5 seed 0: acc [94.70152282714844, 96.21394348144531, 96.82492065429688] stop None 17.5 s
+plr 0.1 alr 0.5 seed 1: acc [94.26081848144531, 95.83333587646484, 96.75480651855469] stop None 13.5 s
+plr 0.1 alr 0.5 seed 2: acc [94.82171630859375, 96.21394348144531, 96.55448913574219] stop None 13.0 s
+plr 0.1 alr 0.01 seed 0: acc [] stop diverged 3.6 s
+plr 0.1 alr 0.01 seed 1: acc [] stop diverged 0.1 s
+plr 0.1 alr 0.01 seed 2: acc [] stop diverged 0.1 s
+plr 0.1 alr 0.5 seed 0: acc [94.43109130859375, 96.03365325927734, 96.72476196289062] stop None 37.8 s
+plr 0.1 alr 0.5 seed 1: acc [94.36097717285156, 95.85336303710938, 96.62460327148438] stop None 32.6 s
+plr 0.1 alr 0.5 seed 2: acc [94.77163696289062, 96.08373260498047, 96.54447174072266] stop None 33.9 s
+plr 0.1 alr 0.01 seed 0: acc [] stop diverged 4.2 s
+plr 0.1 alr 0.01 seed 1: acc [] stop diverged 0.2 s
+plr 0.1 alr 0.01 seed 2: acc [] stop diverged 0.2 s
+plr 0.1 alr 0.5 seed 0: acc [94.53125, 95.99359130859375, 96.58453369140625] stop None 111.6 s
+plr 0.1 alr 0.5 seed 1: acc [94.64142608642578, 95.58293151855469, 96.6446304321289] stop None 103.1 s
+plr 0.1 alr 0.5 seed 2: acc [94.68148803710938, 95.8934326171875, 96.36418151855469] stop None 102.0 s
+plr 0.1 alr 0.01 seed 0: acc [] stop diverged 8.2 s
+plr 0.1 alr 0.01 seed 1: acc [] stop diverged 0.4 s
+plr 0.1 alr 0.01 seed 2: acc [] stop diverged 0.5 s
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/fig1/bp/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/1_epochs/0 with seed: 0
+
+Epoch 1
+-------------------------------
+Train loss: 0.0073162 [19136/60000]
+Avg test accuracy: 95.2324
+
+Train loss: 0.0107351 [38336/60000]
+Avg test accuracy: 96.4243
+
+Train loss: 0.0088675 [57536/60000]
+Avg test accuracy: 95.8734
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/fig1/bp/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/1_epochs/1 with seed: 1
+
+Epoch 1
+-------------------------------
+Train loss: 0.0114692 [19136/60000]
+Avg test accuracy: 95.0321
+
+Train loss: 0.0091104 [38336/60000]
+Avg test accuracy: 96.1238
+
+Train loss: 0.0084786 [57536/60000]
+Avg test accuracy: 97.0954
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/fig1/bp/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/1_epochs/2 with seed: 2
+
+Epoch 1
+-------------------------------
+Train loss: 0.0086679 [19136/60000]
+Avg test accuracy: 94.2208
+
+Train loss: 0.0043296 [38336/60000]
+Avg test accuracy: 96.2540
+
+Train loss: 0.0072706 [57536/60000]
+Avg test accuracy: 96.8550
+
+mupc  H=  8 it900 official 96.71 lean 96.72 ok True s/run 97.41525876522064 vs 13
+mupc  H= 16 it900 official 96.73 lean 96.79 ok True s/run 196.51428508758545 vs 8
+mupc  H= 32 it900 official 96.72 lean 96.79 ok True s/run 2245.144218444824 vs 16
+sp    H=  8 it300 official 9.06 lean 10.93 ok True s/run 34.5557359457016 vs 5
+sp    H= 16 both diverged before the first test point ok True
+accept_lean True
+queued mlrc-or-tmlr-added-value-1790622758; 7 ahead of it
+queued mlrc-or-tmlr-long-runs-1790622819; 8 ahead of it
+queued mlrc-or-tmlr-transfer-relu-1790622879; 9 ahead of it
