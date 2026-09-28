@@ -114,6 +114,36 @@ def main():
         for k in add_keys:
             macros[k] = "\\pending"
 
+    prof = load("layer_profile.json")
+    prof_keys = ["profSeeds", "profHidden", "profThresh", "profNAbove", "profFirstAbove",
+                 "profInMax", "profBelowMax", "profBelowMedMax", "profReadoutMin",
+                 "profLastIt", "profBelowMaxLast", "profNAboveLast"]
+    if prof and prof["n_seeds"]:
+        s = list(prof["seeds"].values())
+        a = [v["it900"] for v in s]
+        b = [v["last"] for v in s]
+        n_above = {x["n_hidden_at_or_above_thresh"] for x in a}
+        first = {x["first_hidden_at_or_above_thresh"] for x in a}
+        n_last = {x["n_hidden_at_or_above_thresh"] for x in b}
+        assert len(n_above) == len(first) == len(n_last) == 1, (n_above, first, n_last)
+        macros.update({
+            "profSeeds": str(prof["n_seeds"]),
+            "profHidden": str(s[0]["n_hidden_matrices"]),
+            "profThresh": f"{prof['threshold']:g}",
+            "profNAbove": str(n_above.pop()),
+            "profFirstAbove": str(first.pop()),
+            "profInMax": sci(max(x["input"] for x in a)),
+            "profBelowMax": f"{max(x['hidden_below_top_max'] for x in a):.3f}",
+            "profBelowMedMax": f"{max(x['hidden_below_top_median'] for x in a):.4f}",
+            "profReadoutMin": f"{min(x['readout'] for x in a):.2f}",
+            "profLastIt": str(s[0]["last_iteration"]),
+            "profBelowMaxLast": f"{max(x['hidden_below_top_max'] for x in b):.3f}",
+            "profNAboveLast": str(n_last.pop()),
+        })
+    else:
+        for k in prof_keys:
+            macros[k] = "\\pending"
+
     smoke = RES / "smoke_acc.csv"
     if smoke.exists():
         rows = [r.split(",") for r in smoke.read_text().split()[1:]]

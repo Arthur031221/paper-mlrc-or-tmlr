@@ -32,7 +32,7 @@ default precision on our GPU the muPC runs stayed at chance; see the report.
 | `fig1_relu.sh` | official code, muPC and SP PC, H = 8 to 32 | `collect.py`, `compare_lean.py` |
 | `lean_fig1.sh` | lean code, H = 8 to 128, and the official BP baseline | `c1_summary.py` |
 | `added_value.sh` | frozen hidden layers, more inference steps, shallow control | `added_summary.py` |
-| `long_runs.sh` | 128-layer muPC against BP, per-layer weight change | `c2_summary.py` |
+| `long_runs.sh` | 128-layer muPC against BP, per-layer weight change | `c2_summary.py`, `layer_profile.py` |
 | `transfer_relu.sh` | learning-rate grid over width and depth | `c3_summary.py` |
 
 `lean_fig1.sh` runs the last three only if `compare_lean.py` accepts the
