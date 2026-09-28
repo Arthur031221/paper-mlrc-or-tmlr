@@ -53,7 +53,11 @@ def final(rec, n=3):
 
 def arm(runs):
     accs = {s: final(r) for s, r in runs.items()}
-    return {"seeds": sorted(accs), "final_accs": [accs[s] for s in sorted(accs)]}
+    out = {"seeds": sorted(accs), "final_accs": [accs[s] for s in sorted(accs)]}
+    devices = sorted({r["device"] for r in runs.values() if "device" in r})
+    if devices:
+        out["devices"] = devices
+    return out
 
 
 def paired(full, frozen):

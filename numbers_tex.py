@@ -90,6 +90,29 @@ def main():
         for k in c1_keys:
             macros[k] = "\\pending"
 
+    add = load("added.json")
+    add_arms = {"PcFull": "mupc_full", "PcFrozen": "mupc_frozen", "PcT": "mupc_T4H",
+                "BpFull": "bp_full", "BpFrozen": "bp_frozen", "PcShallow": "mupc_H1",
+                "BpShallow": "bp_H1"}
+    add_keys = [f"add{k}{s}" for k in add_arms for s in ("", "Sd")] + [
+        "addPcGap", "addPcGapSd", "addBpGap", "addBpGapSd", "addPcShallowPlr",
+        "addPcShallowAlr", "addBpShallowLr", "addVerdict"]
+    if add and add["complete"]:
+        a = add["arms"]
+        for k, name in add_arms.items():
+            macros[f"add{k}"] = f"{a[name]['mean']:.2f}" if a[name]["mean"] is not None else "\\pending"
+            macros[f"add{k}Sd"] = f"{a[name]['sd']:.2f}" if a[name]["sd"] is not None else "\\pending"
+        for k, g in (("Pc", add["mupc_gap"]), ("Bp", add["bp_gap"])):
+            macros[f"add{k}Gap"] = f"{g['mean']:.2f}"
+            macros[f"add{k}GapSd"] = f"{g['sd']:.2f}"
+        plr, alr = a["mupc_H1"]["cell"][3:].split("_alr")
+        macros["addPcShallowPlr"], macros["addPcShallowAlr"] = plr, alr
+        macros["addBpShallowLr"] = a["bp_H1"]["cell"][2:]
+        macros["addVerdict"] = add["verdict"]
+    else:
+        for k in add_keys:
+            macros[k] = "\\pending"
+
     smoke = RES / "smoke_acc.csv"
     if smoke.exists():
         rows = [r.split(",") for r in smoke.read_text().split()[1:]]
