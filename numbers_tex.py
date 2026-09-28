@@ -109,6 +109,7 @@ def main():
         macros["addPcShallowPlr"], macros["addPcShallowAlr"] = plr, alr
         macros["addBpShallowLr"] = a["bp_H1"]["cell"][2:]
         macros["addVerdict"] = add["verdict"]
+        macros["addShallowMinusDeep"] = f"{a['mupc_H1']['mean'] - a['mupc_full']['mean']:.2f}"
     else:
         for k in add_keys:
             macros[k] = "\\pending"
