@@ -1,3 +1,42 @@
 plr 0.1 alr 0.5 seed 0: acc [88.7119369506836, 90.45472717285156, 90.99559783935547] stop None 98.2 s
 plr 0.1 alr 0.5 seed 1: acc [88.3113021850586, 89.57331848144531, 90.89543151855469] stop None 93.6 s
 plr 0.1 alr 0.5 seed 2: acc [88.87220001220703, 90.32452392578125, 90.4246826171875] stop None 92.6 s
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/added/bp_H128_frozen/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/1_epochs/0 with seed: 0
+
+Epoch 1
+-------------------------------
+Train loss: 0.0284624 [19136/60000]
+Avg test accuracy: 90.5649
+
+Train loss: 0.0253772 [38336/60000]
+Avg test accuracy: 92.8986
+
+Train loss: 0.0159082 [57536/60000]
+Avg test accuracy: 94.1306
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/added/bp_H128_frozen/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/1_epochs/1 with seed: 1
+
+Epoch 1
+-------------------------------
+Train loss: 0.0253933 [19136/60000]
+Avg test accuracy: 90.4147
+
+Train loss: 0.0204555 [38336/60000]
+Avg test accuracy: 92.6883
+
+Train loss: 0.0237623 [57536/60000]
+Avg test accuracy: 94.1907
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/added/bp_H128_frozen/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/1_epochs/2 with seed: 2
+
+Epoch 1
+-------------------------------
+Train loss: 0.0228744 [19136/60000]
+Avg test accuracy: 90.9255
+
+Train loss: 0.0199470 [38336/60000]
+Avg test accuracy: 93.2592
+
+Train loss: 0.0112151 [57536/60000]
+Avg test accuracy: 94.1907
+
