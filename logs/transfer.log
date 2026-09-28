@@ -545,3 +545,12 @@ plr 0.5 alr 5 seed 0: acc [11.197916984558105] stop no_learning 5.0 s
 plr 0.5 alr 5 seed 1: acc [11.868990898132324] stop no_learning 4.9 s
 plr 0.5 alr 5 seed 2: acc [4.4070515632629395] stop no_learning 4.3 s
 plr 0.5 alr 1 seed 0: acc [94.52123260498047, 10.01602554321289] stop no_learning 9.3 s
+plr 0.5 alr 1 seed 1: acc [94.82171630859375, 9.785656929016113] stop no_learning 12.2 s
+plr 0.5 alr 1 seed 2: acc [93.89022827148438, 11.40825366973877] stop no_learning 7.7 s
+plr 0.5 alr 0.5 seed 0: acc [94.45112609863281, 94.85176086425781, 9.725561141967773] stop no_learning 15.1 s
+plr 0.5 alr 0.5 seed 1: acc [94.28085327148438, 9.815705299377441] stop no_learning 7.2 s
+plr 0.5 alr 0.5 seed 2: acc [94.39102935791016, 94.74158477783203, 13.09094524383545] stop no_learning 11.8 s
+plr 0.5 alr 0.1 seed 0: acc [94.55128479003906, 91.8269271850586, 13.391426086425781] stop no_learning 15.1 s
+plr 0.5 alr 0.1 seed 1: acc [94.50120544433594, 11.288061141967773] stop no_learning 8.1 s
+plr 0.5 alr 0.1 seed 2: acc [94.90184783935547, 95.19230651855469, 9.154647827148438] stop no_learning 11.1 s
+plr 0.5 alr 0.05 seed 0: acc [93.88021087646484, 86.10777282714844, 9.735576629638672] stop no_learning 15.4 s
