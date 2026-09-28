@@ -40,3 +40,4 @@ Avg test accuracy: 93.2592
 Train loss: 0.0112151 [57536/60000]
 Avg test accuracy: 94.1907
 
+plr 0.1 alr 0.5 seed 0: acc [94.74158477783203, 95.83333587646484, 96.22396087646484] stop None 472.2 s
