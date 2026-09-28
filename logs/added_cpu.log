@@ -1,0 +1,7 @@
+plr 0.5 alr 1000 seed 0: acc [2.914663553237915] stop no_learning 3.1 s
+plr 0.5 alr 1000 seed 1: acc [0.4507211744785309] stop no_learning 1.4 s
+plr 0.5 alr 1000 seed 2: acc [6.430288314819336] stop no_learning 1.1 s
+plr 0.5 alr 500 seed 0: acc [9.304887771606445] stop no_learning 1.2 s
+plr 0.5 alr 500 seed 1: acc [1.9931890964508057] stop no_learning 1.3 s
+plr 0.5 alr 500 seed 2: acc [3.9763622283935547] stop no_learning 1.1 s
+plr 0.5 alr 100 seed 0: acc [92.42788696289062, 93.05889892578125, 93.24919891357422] stop None 3.5 s
