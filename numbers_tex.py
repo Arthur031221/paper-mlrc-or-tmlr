@@ -144,6 +144,48 @@ def main():
         for k in prof_keys:
             macros[k] = "\\pending"
 
+    c2 = load("c2.json")
+    c2_ds = {"Mn": "MNIST", "Fm": "Fashion-MNIST", "Cf": "CIFAR10"}
+    for k, ds in c2_ds.items():
+        row = c2["datasets"].get(ds) if c2 else None
+        keys = [f"ctwo{k}{m}" for m in ("Pc", "PcSd", "Bp", "BpSd", "Gap", "Pass", "HidMed", "In")]
+        if not row:
+            for key in keys:
+                macros[key] = "\\pending"
+            continue
+        macros.update({
+            f"ctwo{k}Pc": f"{row['mupc']['mean']:.2f}",
+            f"ctwo{k}PcSd": f"{row['mupc']['sd']:.2f}",
+            f"ctwo{k}Bp": f"{row['bp']['mean']:.2f}",
+            f"ctwo{k}BpSd": f"{row['bp']['sd']:.2f}",
+            f"ctwo{k}Gap": f"{row['gap']:.2f}",
+            f"ctwo{k}Pass": "met" if row["pass"] else "not met",
+            f"ctwo{k}HidMed": f"{row['weight_change']['hidden_median']:.4f}",
+            f"ctwo{k}In": sci(row["weight_change"]["input"]),
+        })
+
+    done = [r for r in (c2["datasets"].values() if c2 else []) if r]
+    macros["ctwoNPass"] = str(sum(r["pass"] for r in done)) if c2 and c2["complete"] else "\\pending"
+
+    c3 = load("c3.json")
+    c3_keys = ["cthreeRefPlr", "cthreeRefAlr", "cthreeDepth", "cthreeWidth", "cthreeWithin",
+               "cthreePass", "cthreeDeepPlr", "cthreeDeepAlr"]
+    if c3 and c3["complete"] and "pass" in c3:
+        deep = next(r for r in c3["rows"] if r["axis"] == "depth" and r["value"] == 128)
+        macros.update({
+            "cthreeRefPlr": f"{c3['reference_lr'][0]:g}",
+            "cthreeRefAlr": f"{c3['reference_lr'][1]:g}",
+            "cthreeDepth": str(c3["matches_depth"]),
+            "cthreeWidth": str(c3["matches_width"]),
+            "cthreeWithin": "every" if c3["all_within_one"] else "not every",
+            "cthreePass": "passes" if c3["pass"] else "fails",
+            "cthreeDeepPlr": f"{deep['best_lr'][0]:g}",
+            "cthreeDeepAlr": f"{deep['best_lr'][1]:g}",
+        })
+    else:
+        for k in c3_keys:
+            macros[k] = "\\pending"
+
     smoke = RES / "smoke_acc.csv"
     if smoke.exists():
         rows = [r.split(",") for r in smoke.read_text().split()[1:]]
