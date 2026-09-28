@@ -20,9 +20,12 @@ cd "$JPC"
 $PY $OLDPWD/run_bpn.py --results_dir $OLDPWD/$A/bp_H128_frozen --freeze_hidden --dataset MNIST \
   --loss_id mse --n_hidden 128 --act_fns relu --param_type depth_mup --lrs 5e-3 --batch_size 64 \
   --max_epochs 1 --test_every 300 --n_seeds 3 >> $OLDPWD/logs/added.log 2>&1
+# The shallow grids are small; run on their own they may already be complete (9 lrs x 3 seeds).
+if [ "$(find $OLDPWD/$A/bp_H1_grid -name test_accs.npy 2>/dev/null | wc -l)" -lt 27 ]; then
 $PY $OLDPWD/run_bpn.py --results_dir $OLDPWD/$A/bp_H1_grid --dataset MNIST --loss_id mse \
   --n_hidden 1 --act_fns relu --param_type depth_mup --lrs 1 5e-1 1e-1 5e-2 1e-2 5e-3 1e-3 5e-4 1e-4 \
   --batch_size 64 --max_epochs 1 --test_every 300 --n_seeds 3 >> $OLDPWD/logs/added.log 2>&1
+fi
 cd "$OLDPWD"
 $PY lean_mupc.py --out $A/mupc_H128_T512 --n_hidden 128 --max_infer_iters 512 \
   --param_lr 1e-1 --activity_lr 5e-1 --seeds 0 1 2 >> logs/added.log 2>&1
