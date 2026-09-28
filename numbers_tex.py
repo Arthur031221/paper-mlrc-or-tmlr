@@ -16,6 +16,21 @@ def sci(x):
     return f"{m}\\times 10^{{{int(e)}}}"
 
 
+# Two-sided 97.5% quantile of Student's t by degrees of freedom.
+T975 = {1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776}
+
+
+def paired_ci(x, y):
+    """95% t interval of the per-seed difference x - y; both arms must share seeds."""
+    assert x["seeds"] == y["seeds"], (x["seeds"], y["seeds"])
+    d = [a - b for a, b in zip(x["final_accs"], y["final_accs"])]
+    n = len(d)
+    m = sum(d) / n
+    sd = (sum((v - m) ** 2 for v in d) / (n - 1)) ** 0.5
+    h = T975[n - 1] * sd / n ** 0.5
+    return m - h, m + h
+
+
 def load(name):
     p = RES / name
     return json.loads(p.read_text()) if p.exists() else None
@@ -40,6 +55,9 @@ def main():
         c8 = cases[("mupc", 8)]
         macros["eqAdamLeanHeight"] = f"${sci(c8['adam_lean_vs_official'][-1])}$"
         macros["eqAdamUlpHeight"] = f"${sci(c8['adam_ulp_control_vs_official'][-1])}$"
+        sp8 = cases[("sp", 8)]
+        macros["eqSpAdam"] = f"{sp8['adam_lean_vs_official'][-1]:.2f}"
+        macros["eqSpUlp"] = f"{sp8['adam_ulp_control_vs_official'][-1]:.2f}"
 
     prec = load("gpu_prec.json")
     if prec:
@@ -60,7 +78,8 @@ def main():
     c1 = load("c1.json")
     c1_keys = ("cOneMinMean", "cOneMaxMean", "cOneSpread", "cOneMinRun", "cOneSpDeepMax",
                "cOneVerdict", "cOneAgreeConfigs", "cOneAgreeRuns", "cOneSpStopped", "cOneSpRuns",
-               "cOneDeepMean", "cOneDeepSd", "cOneBpMean", "cOneBpSd", "speedOfficial", "speedLean")
+               "cOneDeepMean", "cOneDeepSd", "cOneBpMean", "cOneBpSd", "speedOfficial", "speedLean",
+               "cOneAgreeTested", "cOneAgreeNoTest", "cOneSpDeepRuns", "cOneSpDeepNoTest")
     if c1 and c1["complete"] and load("lean_vs_official.json"):
         lvo = load("lean_vs_official.json")
         macros["cOneMinMean"] = f"{c1['mupc_min_mean']:.2f}"
@@ -71,7 +90,14 @@ def main():
         macros["cOneVerdict"] = "passes" if c1["pass"] else "fails"
         macros["cOneAgreeConfigs"] = str(lvo["configs_compared"])
         macros["cOneAgreeRuns"] = str(sum(len(r["seeds"]) for r in lvo["rows"]))
+        tested = [r for r in lvo["rows"] if r["lean_accs"]]
+        macros["cOneAgreeTested"] = str(len(tested))
+        macros["cOneAgreeNoTest"] = str(len(lvo["rows"]) - len(tested))
         sp = [r for r in c1["rows"] if r["method"] == "sp"]
+        # c1_summary.py records a run with no test point as 10.0 with stopped=True.
+        spd = [r for r in sp if r["source"] == "lean" and r["n_hidden"] >= 64]
+        macros["cOneSpDeepRuns"] = str(sum(len(r["seeds"]) for r in spd))
+        macros["cOneSpDeepNoTest"] = str(sum(1 for r in spd for a, st in zip(r["final_accs"], r["stopped"]) if st and a == 10.0))
         macros["cOneSpRuns"] = str(sum(len(r["seeds"]) for r in sp))
         macros["cOneSpStopped"] = str(sum(sum(r["stopped"]) for r in sp))
         bp = [r for r in c1["rows"] if r["method"] == "bp" and r["n_hidden"] == 128]
@@ -96,8 +122,13 @@ def main():
                 "BpShallow": "bp_H1"}
     add_keys = [f"add{k}{s}" for k in add_arms for s in ("", "Sd")] + [
         "addPcGap", "addPcGapSd", "addBpGap", "addBpGapSd", "addPcShallowPlr",
-        "addPcShallowAlr", "addBpShallowLr", "addVerdict"]
+        "addPcShallowAlr", "addBpShallowLr", "addVerdict", "addShallowMinusDeep"] + [
+        f"add{k}{e}" for k in ("PcGap", "BpGap", "ShallowMinusDeep") for e in ("Lo", "Hi")]
     if add and add["complete"]:
+        for k, x, y in (("PcGap", "mupc_full", "mupc_frozen"), ("BpGap", "bp_full", "bp_frozen"),
+                        ("ShallowMinusDeep", "mupc_H1", "mupc_full")):
+            lo, hi = paired_ci(add["arms"][x], add["arms"][y])
+            macros[f"add{k}Lo"], macros[f"add{k}Hi"] = f"{lo:.2f}", f"{hi:.2f}"
         a = add["arms"]
         for k, name in add_arms.items():
             macros[f"add{k}"] = f"{a[name]['mean']:.2f}" if a[name]["mean"] is not None else "\\pending"
@@ -142,6 +173,29 @@ def main():
         })
     else:
         for k in prof_keys:
+            macros[k] = "\\pending"
+    macros["profHidMedMax"] = (f"{max(x['it900']['hidden_median'] for x in prof['seeds'].values()):.4f}"
+                               if prof and prof["n_seeds"] else "\\pending")
+
+    # Same profile for the BP baseline with Depth-muP (bp_profile.py).
+    bpp = load("layer_profile_bp.json")
+    bpp_keys = ["bpProfSeeds", "bpProfAcc", "bpProfNAboveMin", "bpProfNAboveMax",
+                "bpProfHidMedMin", "bpProfNAboveLastMin", "bpProfNAboveLastMax", "bpProfInMin"]
+    if bpp and bpp["n_seeds"]:
+        a = [v["it900"] for v in bpp["seeds"].values()]
+        b = [v["it4500"] for v in bpp["seeds"].values()]
+        macros.update({
+            "bpProfSeeds": str(bpp["n_seeds"]),
+            "bpProfAcc": f"{sum(x['test_acc'] for x in a) / len(a):.2f}",
+            "bpProfNAboveMin": str(min(x["n_hidden_at_or_above_thresh"] for x in a)),
+            "bpProfNAboveMax": str(max(x["n_hidden_at_or_above_thresh"] for x in a)),
+            "bpProfHidMedMin": f"{min(x['hidden_median'] for x in a):.4f}",
+            "bpProfNAboveLastMin": str(min(x["n_hidden_at_or_above_thresh"] for x in b)),
+            "bpProfNAboveLastMax": str(max(x["n_hidden_at_or_above_thresh"] for x in b)),
+            "bpProfInMin": sci(min(x["input"] for x in a)),
+        })
+    else:
+        for k in bpp_keys:
             macros[k] = "\\pending"
 
     c2 = load("c2.json")
