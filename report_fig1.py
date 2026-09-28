@@ -1,4 +1,4 @@
-"""Apply the C1 criteria fixed in IDEA.md to results/fig1.csv.
+"""Apply the C1 criteria stated in the paper to results/fig1.csv.
 
 C1 passes when muPC test accuracy at iteration 900 is at least 90% at every
 depth, the spread of the per-depth seed means is at most 3 points, and SP PC

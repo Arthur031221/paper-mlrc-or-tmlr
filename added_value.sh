@@ -1,5 +1,5 @@
 #!/bin/sh
-# Added-value arms (IDEA.md, criterion fixed before any run): does muPC at
+# Added-value arms (decision rule stated in the paper, fixed before any run): does muPC at
 # H = 128 use its depth? MNIST, one epoch, batch 64, seeds 0 to 2.
 #  (a) muPC H = 128 with the hidden weights frozen, and the BP Depth-muP
 #      counterpart (lr 5e-3); the full-training runs come from lean_fig1.sh.

@@ -1,6 +1,6 @@
 """Compare lean_mupc.py with the official code on the Fig. 1 grid.
 
-Rule, fixed before the lean runs (STATUS.md, 2026-09-29): the lean code is
+Rule, fixed before the lean runs: the lean code is
 used for the rest of the study if, at every (parameterisation, depth) that
 both have finished, the lean seed mean at the last common test point lies
 within the official seed range widened by 1 point on each side. Runs stopped

@@ -1,0 +1,51 @@
+# Reproducing muPC
+
+Code for a reproduction of "muPC: Scaling Predictive Coding to 100+ Layer
+Networks" (Innocenti et al., 2025). Every number and figure in the report
+is written by a script in this directory from the run outputs.
+
+## Setup
+
+    sh setup_upstream.sh
+
+This clones the authors' `jpc` library into `../vendor/upstream_jpc`,
+checks out commit 84f277b and builds a Python 3.11 environment in
+`../vendor/.venv-pinned` with the versions in `requirements-pinned.txt`
+(JAX 0.5.2, jaxlib 0.5.1, Equinox 0.11.12, Optax 0.2.4). PyTorch is the
+CPU build and is used only to load data. It needs `git` and `uv`.
+
+The job scripts source `env.sh`, which points them at that interpreter and
+checkout. Datasets live in `../vendor/upstream_jpc/datasets`; the official
+loaders download them on first use, and `lean_mupc.py` reads MNIST from
+there without downloading (set `MUPC_DATA` to use another directory).
+
+`lean_mupc.py` sets JAX's default matmul precision to `highest`. With the
+default precision on our GPU the muPC runs stayed at chance; see the report.
+
+## Order of the runs
+
+| Script | What it runs | Summary |
+| --- | --- | --- |
+| `smoke.sh` | one official muPC run, H = 8, seed 0 | `collect.py` |
+| `equiv_check.py` | lean code against the official functions, CPU | `results/equiv.json` |
+| `lean_gpu_prec.sh` | GPU matmul precision check | `gpu_prec_collect.py` |
+| `fig1_relu.sh` | official code, muPC and SP PC, H = 8 to 32 | `collect.py`, `compare_lean.py` |
+| `lean_fig1.sh` | lean code, H = 8 to 128, and the official BP baseline | `c1_summary.py` |
+| `added_value.sh` | frozen hidden layers, more inference steps, shallow control | `added_summary.py` |
+| `long_runs.sh` | 128-layer muPC against BP, per-layer weight change | `c2_summary.py` |
+| `transfer_relu.sh` | learning-rate grid over width and depth | `c3_summary.py` |
+
+`lean_fig1.sh` runs the last three only if `compare_lean.py` accepts the
+lean code. We stopped the official Fig. 1 grid after H = 32: one official
+run at that depth took about 35 minutes on our shared machine, against
+about 15 seconds for the lean code.
+
+`fig1_plot.py` and `fig2_plot.py` draw the figures from the summaries, and
+`numbers_tex.py` writes every number quoted in the report to
+`../paper/numbers.tex`. `env_check.py` records the software and hardware
+in `results/env.json`.
+
+`run_bpn.py` wraps the official BP script, which fixes the input size to
+that of CIFAR-10; the wrapper takes it from the dataset.
+
+Seeds are 0, 1 and 2 throughout.

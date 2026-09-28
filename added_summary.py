@@ -4,7 +4,7 @@ Reads runs/lean_fig1/mupc_H128 (muPC, full training), runs/fig1/bp (official
 BP Depth-muP, full training) and runs/added (added_value.sh). Writes
 results/added.json.
 
-Decision rule (IDEA.md, fixed before any of these runs), on test accuracy
+Decision rule (stated in the paper, fixed before any of these runs), on test accuracy
 after 900 iterations with differences paired by seed; "s.d." is the sample
 standard deviation of the paired differences:
   decidable  if BP full - BP frozen >= 1 pp and >= 2 s.d.;

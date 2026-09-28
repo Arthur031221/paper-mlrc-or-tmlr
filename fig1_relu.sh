@@ -1,7 +1,7 @@
 #!/bin/sh
 # Claim C1 (Fig. 1 right, ReLU): muPC and SP PC over depth, and BP with Depth-muP at H=128.
 # MNIST, width 512, batch 64, T = H inference steps, 1 epoch, test every 300 iterations, seeds 0, 1, 2.
-# Learning rates are the paper's selected values (expert/notes/mupc.md, "Hyperparameters").
+# Learning rates are the paper's selected values.
 set -e
 # JAX would otherwise take 75% of the card; the queue budgets memory per job.
 export XLA_PYTHON_CLIENT_PREALLOCATE=false

@@ -3,7 +3,7 @@
 Reads runs/fig1 (official scripts: PC under pc/, BP under bp/) and
 runs/lean_fig1 (lean_mupc.py). Writes results/c1.json.
 
-Criterion (IDEA.md, fixed before any run): muPC test accuracy at iteration
+Criterion (stated in the paper, fixed before any run): muPC test accuracy at iteration
 900 is at least 90% at every H with a spread across depths of at most 3 pp,
 and SP PC at H in {64, 128} stays at or below 15%. A run that the training
 code stopped (diverged, or below 15% at the first test point) counts as

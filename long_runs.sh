@@ -1,7 +1,7 @@
 #!/bin/sh
 # Claim C2: 128-layer ReLU muPC nets against BP with Depth-muP (Figs. A.17 to A.19),
 # with per-layer weight change logged at every test point (added-value axis).
-# Settings from the official plotting notebook (expert/notes/mupc.md, "Exact settings").
+# Settings from the official plotting notebook.
 set -e
 cd "$(dirname "$0")"
 . ./env.sh
