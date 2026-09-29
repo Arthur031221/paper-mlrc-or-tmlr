@@ -4,6 +4,7 @@ Reads only files in results/. A macro whose source file is missing is
 defined as \\pending so the draft compiles and the gap is visible.
 """
 import json
+import math
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -239,6 +240,36 @@ def main():
     else:
         for k in c3_keys:
             macros[k] = "\\pending"
+
+    # Per sweep point, filled as soon as that point's grid is complete.
+    words = {8: "Eight", 16: "Sixteen", 32: "Thirtytwo", 64: "Sixtyfour", 128: "Onetwentyeight",
+             256: "Twofiftysix", 512: "Fivetwelve", 1024: "Tentwentyfour"}
+    for r in (c3["rows"] if c3 else []):
+        k = "cthree" + ("W" if r["axis"] == "width" else "D") + words[r["value"]]
+        if r.get("complete") and r.get("regret") is not None:
+            sr = r["seed_regret"]
+            macros.update({
+                k + "Plr": f"{r['best_lr'][0]:g}", k + "Alr": f"{r['best_lr'][1]:g}",
+                k + "Regret": f"{r['regret']:.2f}", k + "Rank": str(r["rank"]),
+                k + "Eligible": str(r["eligible_cells"]),
+                k + "SeedMin": f"{min(sr):.2f}", k + "SeedMax": f"{max(sr):.2f}",
+            })
+        else:
+            for s_ in ("Plr", "Alr", "Regret", "Rank", "Eligible", "SeedMin", "SeedMax"):
+                macros[k + s_] = "\\pending"
+    wrows = [r for r in (c3["rows"] if c3 else []) if r["axis"] == "width"]
+    ref = next((r["best"] for r in (c3["rows"] if c3 else [])
+                if r["axis"] == "depth" and r["value"] == 8 and r.get("complete")), None)
+    if ref is not None and wrows and all(r.get("complete") for r in wrows):
+        others = [r for r in wrows if r["value"] != 512]
+        macros["cthreeWidthOther"] = str(sum(r["best"] == ref for r in others))
+        macros["cthreeWidthOtherN"] = str(len(others))
+    else:
+        macros["cthreeWidthOther"] = macros["cthreeWidthOtherN"] = "\\pending"
+    # Grid step sizes in decades, from the grids themselves.
+    if c3:
+        macros["cthreeStepPlr"] = f"{math.log10(2):.1f}"
+        macros["cthreeStepAlrFive"] = f"{math.log10(5):.1f}"
 
     smoke = RES / "smoke_acc.csv"
     if smoke.exists():
