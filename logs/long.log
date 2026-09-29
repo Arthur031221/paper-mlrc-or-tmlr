@@ -15,3 +15,308 @@ plr 0.1 alr 0.01 seed 1: acc [33.4134635925293, 34.79567337036133, 35.6370201110
 Files already downloaded and verified
 Files already downloaded and verified
 plr 0.1 alr 0.01 seed 2: acc [32.92267608642578, 35.256412506103516, 35.256412506103516, 36.63862228393555, 36.68870162963867, 38.341346740722656, 37.51001739501953, 39.85376739501953, 39.56330108642578, 39.72355651855469, 39.403045654296875, 40.394630432128906, 37.92067337036133, 40.94551467895508, 40.61498260498047, 40.865386962890625, 41.28605651855469, 41.466346740722656, 42.06730651855469, 42.22756576538086] stop None 1832.7 s
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/long/bp/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/5_epochs/0 with seed: 0
+
+Epoch 1
+-------------------------------
+Train loss: 0.0071843 [19136/60000]
+Avg test accuracy: 95.2424
+
+Train loss: 0.0106001 [38336/60000]
+Avg test accuracy: 96.5845
+
+Train loss: 0.0087467 [57536/60000]
+Avg test accuracy: 95.9736
+
+
+Epoch 2
+-------------------------------
+Train loss: 0.0035857 [16768/60000]
+Avg test accuracy: 96.9551
+
+Train loss: 0.0022497 [35968/60000]
+Avg test accuracy: 97.1655
+
+Train loss: 0.0046482 [55168/60000]
+Avg test accuracy: 96.9551
+
+
+Epoch 3
+-------------------------------
+Train loss: 0.0007101 [14400/60000]
+Avg test accuracy: 97.3458
+
+Train loss: 0.0045180 [33600/60000]
+Avg test accuracy: 97.5160
+
+Train loss: 0.0021965 [52800/60000]
+Avg test accuracy: 97.4259
+
+
+Epoch 4
+-------------------------------
+Train loss: 0.0005801 [12032/60000]
+Avg test accuracy: 97.8866
+
+Train loss: 0.0012017 [31232/60000]
+Avg test accuracy: 97.5361
+
+Train loss: 0.0037757 [50432/60000]
+Avg test accuracy: 97.6963
+
+
+Epoch 5
+-------------------------------
+Train loss: 0.0044052 [9664/60000]
+Avg test accuracy: 97.8065
+
+Train loss: 0.0028904 [28864/60000]
+Avg test accuracy: 97.6462
+
+Train loss: 0.0026197 [48064/60000]
+Avg test accuracy: 97.5160
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/long/bp/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/5_epochs/1 with seed: 1
+
+Epoch 1
+-------------------------------
+Train loss: 0.0115118 [19136/60000]
+Avg test accuracy: 94.9519
+
+Train loss: 0.0093976 [38336/60000]
+Avg test accuracy: 96.1739
+
+Train loss: 0.0090986 [57536/60000]
+Avg test accuracy: 96.8850
+
+
+Epoch 2
+-------------------------------
+Train loss: 0.0077206 [16768/60000]
+Avg test accuracy: 96.3542
+
+Train loss: 0.0013907 [35968/60000]
+Avg test accuracy: 97.2155
+
+Train loss: 0.0022694 [55168/60000]
+Avg test accuracy: 97.2356
+
+
+Epoch 3
+-------------------------------
+Train loss: 0.0040217 [14400/60000]
+Avg test accuracy: 97.2556
+
+Train loss: 0.0066468 [33600/60000]
+Avg test accuracy: 97.4459
+
+Train loss: 0.0033705 [52800/60000]
+Avg test accuracy: 97.7664
+
+
+Epoch 4
+-------------------------------
+Train loss: 0.0009819 [12032/60000]
+Avg test accuracy: 97.4660
+
+Train loss: 0.0034770 [31232/60000]
+Avg test accuracy: 97.5361
+
+Train loss: 0.0007940 [50432/60000]
+Avg test accuracy: 97.8566
+
+
+Epoch 5
+-------------------------------
+Train loss: 0.0022609 [9664/60000]
+Avg test accuracy: 97.4760
+
+Train loss: 0.0018540 [28864/60000]
+Avg test accuracy: 97.6763
+
+Train loss: 0.0022868 [48064/60000]
+Avg test accuracy: 97.6062
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/long/bp/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/5_epochs/2 with seed: 2
+
+Epoch 1
+-------------------------------
+Train loss: 0.0086046 [19136/60000]
+Avg test accuracy: 94.3610
+
+Train loss: 0.0042037 [38336/60000]
+Avg test accuracy: 96.3241
+
+Train loss: 0.0062738 [57536/60000]
+Avg test accuracy: 96.8550
+
+
+Epoch 2
+-------------------------------
+Train loss: 0.0027611 [16768/60000]
+Avg test accuracy: 97.2656
+
+Train loss: 0.0042499 [35968/60000]
+Avg test accuracy: 97.1154
+
+Train loss: 0.0055536 [55168/60000]
+Avg test accuracy: 97.1254
+
+
+Epoch 3
+-------------------------------
+Train loss: 0.0034550 [14400/60000]
+Avg test accuracy: 97.1454
+
+Train loss: 0.0032052 [33600/60000]
+Avg test accuracy: 96.7849
+
+Train loss: 0.0086627 [52800/60000]
+Avg test accuracy: 96.6847
+
+
+Epoch 4
+-------------------------------
+Train loss: 0.0022039 [12032/60000]
+Avg test accuracy: 97.4459
+
+Train loss: 0.0027274 [31232/60000]
+Avg test accuracy: 97.1354
+
+Train loss: 0.0019822 [50432/60000]
+Avg test accuracy: 96.8450
+
+
+Epoch 5
+-------------------------------
+Train loss: 0.0003936 [9664/60000]
+Avg test accuracy: 97.7865
+
+Train loss: 0.0012351 [28864/60000]
+Avg test accuracy: 97.4660
+
+Train loss: 0.0026113 [48064/60000]
+Avg test accuracy: 97.2456
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/long/bp/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/5_epochs/3 with seed: 3
+
+Epoch 1
+-------------------------------
+Train loss: 0.0107261 [19136/60000]
+Avg test accuracy: 95.3626
+
+Train loss: 0.0080643 [38336/60000]
+Avg test accuracy: 96.0637
+
+Train loss: 0.0082884 [57536/60000]
+Avg test accuracy: 96.2440
+
+
+Epoch 2
+-------------------------------
+Train loss: 0.0010896 [16768/60000]
+Avg test accuracy: 96.6947
+
+Train loss: 0.0081598 [35968/60000]
+Avg test accuracy: 96.8349
+
+Train loss: 0.0031472 [55168/60000]
+Avg test accuracy: 97.1154
+
+
+Epoch 3
+-------------------------------
+Train loss: 0.0010138 [14400/60000]
+Avg test accuracy: 97.1254
+
+Train loss: 0.0024048 [33600/60000]
+Avg test accuracy: 96.9551
+
+Train loss: 0.0014305 [52800/60000]
+Avg test accuracy: 97.4660
+
+
+Epoch 4
+-------------------------------
+Train loss: 0.0066374 [12032/60000]
+Avg test accuracy: 97.4059
+
+Train loss: 0.0131789 [31232/60000]
+Avg test accuracy: 97.7163
+
+Train loss: 0.0025483 [50432/60000]
+Avg test accuracy: 97.7564
+
+
+Epoch 5
+-------------------------------
+Train loss: 0.0003591 [9664/60000]
+Avg test accuracy: 97.8165
+
+Train loss: 0.0005780 [28864/60000]
+Avg test accuracy: 97.7464
+
+Train loss: 0.0002634 [48064/60000]
+Avg test accuracy: 97.3558
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/long/bp/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/5_epochs/4 with seed: 4
+
+Epoch 1
+-------------------------------
+Train loss: 0.0101488 [19136/60000]
+Avg test accuracy: 95.0921
+
+Train loss: 0.0036138 [38336/60000]
+Avg test accuracy: 95.3526
+
+Train loss: 0.0057831 [57536/60000]
+Avg test accuracy: 96.2139
+
+
+Epoch 2
+-------------------------------
+Train loss: 0.0032142 [16768/60000]
+Avg test accuracy: 97.0052
+
+Train loss: 0.0039287 [35968/60000]
+Avg test accuracy: 96.8049
+
+Train loss: 0.0040021 [55168/60000]
+Avg test accuracy: 97.2155
+
+
+Epoch 3
+-------------------------------
+Train loss: 0.0009226 [14400/60000]
+Avg test accuracy: 97.4259
+
+Train loss: 0.0049442 [33600/60000]
+Avg test accuracy: 97.6763
+
+Train loss: 0.0033662 [52800/60000]
+Avg test accuracy: 97.5861
+
+
+Epoch 4
+-------------------------------
+Train loss: 0.0015702 [12032/60000]
+Avg test accuracy: 97.3858
+
+Train loss: 0.0023462 [31232/60000]
+Avg test accuracy: 97.2857
+
+Train loss: 0.0046354 [50432/60000]
+Avg test accuracy: 97.3157
+
+
+Epoch 5
+-------------------------------
+Train loss: 0.0035004 [9664/60000]
+Avg test accuracy: 97.7965
+
+Train loss: 0.0003725 [28864/60000]
+Avg test accuracy: 98.0068
+
+Train loss: 0.0004292 [48064/60000]
+Avg test accuracy: 97.9167
+
