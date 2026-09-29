@@ -23,6 +23,9 @@ each sweep point, with the reference cell c_ref and the best cell c_best,
   seed_regret = log10 m_k(c_ref) - log10 m_k(c_best) for each seed k.
 The minimum training loss is the unsmoothed minimum over per-minibatch losses.
 Taking the best cell of noisy seed means biases regret upwards.
+Also descriptive: acc_ref and acc_best, the seed mean of the test accuracy at
+the last test point in the reference and best cells, and the per-seed values
+(acc_ref_seeds, acc_best_seeds).
 Usage: python c3_summary.py
 """
 import json
@@ -100,6 +103,11 @@ if ref:
         r["regret"] = float(np.log10(sc) - np.log10(g[b[0], b[1]]))
         r["rank"] = int(np.sum(g[np.isfinite(g)] < sc)) + 1
         r["seed_regret"] = [float(np.log10(x) - np.log10(y)) for x, y in zip(mr, mb)]
+        for key, c in (("acc_ref", ref), ("acc_best", b)):
+            recs, _ = seed_mins(d / f"plr{PLR[c[0]]:g}_alr{ALR[c[1]]:g}")
+            accs = [x["test_acc"][-1] for x in recs if x["test_acc"]]
+            r[key] = float(np.mean(accs)) if len(accs) == len(recs) else None
+            r[key + "_seeds"] = accs
 (HERE / "results" / "c3.json").write_text(json.dumps(out, indent=1) + "\n")
 for r in rows:
     print(f"{r['axis']:5s} {r['value']:5d} best {r['best_lr']} eligible {r['eligible_cells']}"

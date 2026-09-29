@@ -310,9 +310,13 @@ def main():
                 k + "Regret": f"{r['regret']:.2f}", k + "Rank": str(r["rank"]),
                 k + "Eligible": str(r["eligible_cells"]),
                 k + "SeedMin": f"{min(sr):.2f}", k + "SeedMax": f"{max(sr):.2f}",
+                k + "AccRef": "--" if r.get("acc_ref") is None else f"{r['acc_ref']:.2f}",
+                k + "AccBest": "--" if r.get("acc_best") is None else f"{r['acc_best']:.2f}",
+                k + "AccBestMin": f"{min(r['acc_best_seeds']):.2f}" if r.get("acc_best_seeds") else "--",
             })
         else:
-            for s_ in ("Plr", "Alr", "Regret", "Rank", "Eligible", "SeedMin", "SeedMax"):
+            for s_ in ("Plr", "Alr", "Regret", "Rank", "Eligible", "SeedMin", "SeedMax",
+                       "AccRef", "AccBest", "AccBestMin"):
                 macros[k + s_] = "\\pending"
     wrows = [r for r in (c3["rows"] if c3 else []) if r["axis"] == "width"]
     ref = next((r["best"] for r in (c3["rows"] if c3 else [])
