@@ -13,3 +13,4 @@ for H in 8 16 32 64 128; do
     --param_lr $PLR --activity_lr $ALR --test_every 100 >> logs/sp_grid.log 2>&1
 done
 touch runs/sp_grid/DONE
+$PY sp_summary.py >> logs/sp_grid.log 2>&1

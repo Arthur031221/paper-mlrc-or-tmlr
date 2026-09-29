@@ -34,6 +34,10 @@ default precision on our GPU the muPC runs stayed at chance; see the report.
 | `added_value.sh` | frozen hidden layers, more inference steps, shallow control | `added_summary.py` |
 | `long_runs.sh` | 128-layer muPC against BP, per-layer weight change | `c2_summary.py`, `layer_profile.py` |
 | `transfer_relu.sh` | learning-rate grid over width and depth | `c3_summary.py` |
+| `freeze_test.sh` | lower 121 hidden layers frozen, muPC and BP, MNIST and CIFAR-10 | `freeze_summary.py` |
+| `tuned_cell.sh` | the freeze test at the best H = 128 grid cell | `freeze_summary.py` |
+| `sp_grid.sh` | standard parameterisation over the learning-rate grid, H = 8 to 128 | `sp_summary.py` |
+| `official_h64.sh` | official code, muPC at H = 64 | `official_h64_summary.py` |
 
 `lean_fig1.sh` runs the last three only if `compare_lean.py` accepts the
 lean code. We stopped the official Fig. 1 grid after H = 32: one official

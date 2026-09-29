@@ -146,6 +146,49 @@ def main():
         for k in add_keys:
             macros[k] = "\\pending"
 
+    if add and add["complete"]:
+        a = add["arms"]
+        macros["addPcTMinusFull"] = f"{a['mupc_full']['mean'] - a['mupc_T4H']['mean']:.2f}"
+    else:
+        macros["addPcTMinusFull"] = "\\pending"
+
+    # Partial-freeze test (freeze_summary.py). Nb: notebook cell, Tu: H = 128 grid-best cell.
+    frz = load("freeze.json") or {}
+    arm_names = {"PcFull": "mupc_full", "PcLow": "mupc_frz1-121", "PcTop": "mupc_frz122-127",
+                 "BpFull": "bp_full", "BpLow": "bp_frz1-121"}
+    for tag, key in (("Nb", "notebook"), ("Tu", "tuned")):
+        r = frz.get(key, {})
+        arms = r.get("arms", {})
+        for k, name in arm_names.items():
+            x = arms.get(name, {})
+            ok = x.get("mean") is not None and len(x.get("seeds", [])) == 5
+            macros[f"frz{tag}{k}"] = f"{x['mean']:.2f}" if ok else "\\pending"
+            macros[f"frz{tag}{k}Sd"] = f"{x['sd']:.2f}" if ok else "\\pending"
+        for k, rk in (("Pc", "mupc_rule"), ("Bp", "bp_rule")):
+            ru = r.get(rk, {})
+            done = ru.get("complete") and len(ru.get("seeds", [])) == 5
+            macros[f"frz{tag}{k}Diff"] = f"{ru['mean']:.2f}" if done else "\\pending"
+            macros[f"frz{tag}{k}Lo"] = f"{ru['ci95'][0]:.2f}" if done else "\\pending"
+            macros[f"frz{tag}{k}Hi"] = f"{ru['ci95'][1]:.2f}" if done else "\\pending"
+            macros[f"frz{tag}{k}Verdict"] = ru["verdict"] if done else "\\pending"
+    cf = frz.get("cifar", {})
+    for k, name in (("CfPcLow", "mupc_frz1-121"), ("CfBpLow", "bp_frz1-121")):
+        x = cf.get(name, {})
+        ok = x.get("mean") is not None and len(x.get("seeds", [])) == 3
+        macros[f"frz{k}"] = f"{x['mean']:.2f}" if ok else "\\pending"
+        macros[f"frz{k}Sd"] = f"{x['sd']:.2f}" if ok else "\\pending"
+
+    # Standard parameterisation over the 4 x 11 grid (sp_summary.py).
+    sp = load("sp_grid.json") or {}
+    for k in ("spEightAcc", "spSixteenAcc", "spThirtytwoAcc", "spSixtyfourAcc",
+              "spOnetwentyeightAcc", "spMaxDeep", "spVerdict", "spEligibleDeep"):
+        macros[k] = str(sp[k]) if k in sp else "\\pending"
+
+    # Official code at H = 64 against the reimplementation (official_h64.sh).
+    o64 = load("official_h64.json") or {}
+    for k in ("offSixtyfourMean", "offSixtyfourSd", "offSixtyfourLean", "offSixtyfourAgree"):
+        macros[k] = str(o64[k]) if k in o64 else "\\pending"
+
     prof = load("layer_profile.json")
     prof_keys = ["profSeeds", "profHidden", "profThresh", "profNAbove", "profFirstAbove",
                  "profInMax", "profBelowMax", "profBelowMedMax", "profReadoutMin",
