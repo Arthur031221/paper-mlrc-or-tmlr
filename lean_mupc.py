@@ -23,6 +23,9 @@ the official loaders themselves.
 
 --freeze_hidden keeps the hidden weights W_1 .. W_{L-2} at initialisation and
 trains only the input and output maps (an added-value arm, not in the paper).
+--freeze_range A B keeps hidden matrices W_A .. W_B (1-based, inclusive) at
+initialisation; their Adam updates are zeroed. --log_grads records the
+Frobenius norm of each layer's weight gradient at every test point.
 
 Usage: python lean_mupc.py --out runs/lean/<name> --n_hidden 8 --param_type mupc
        --param_lr 1e-1 --activity_lr 5e-1 --seeds 0 1 2 [--log_weights]
@@ -139,7 +142,7 @@ def make_fns(param_type, d_in, width, n_hidden, act_fn, loss="mse"):
     return ffwd, energy, out_loss, test_batch
 
 
-def make_train_step(fns, T, opt):
+def make_train_step(fns, T, opt, hidden_mask=None, log_grads=False):
     """One training iteration: feedforward init, T gradient steps on the
     activities, one optimiser step on the weights. The activity learning rate
     is an argument, so a learning-rate grid compiles once."""
@@ -154,7 +157,15 @@ def make_train_step(fns, T, opt):
         Z = jax.lax.fori_loop(0, T, lambda _, Z: Z - activity_lr * grad_z(p, Z, x, y), Z)
         g = grad_p(p, Z, x, y)
         upd, opt_state = opt.update(g, opt_state, p)
-        return optax.apply_updates(p, upd), opt_state, train_loss
+        if hidden_mask is not None:
+            upd = {**upd, "Wh": upd["Wh"] * hidden_mask[:, None, None]}
+        p = optax.apply_updates(p, upd)
+        if log_grads:
+            gn = jnp.concatenate([jnp.linalg.norm(g["W0"])[None],
+                                  jnp.sqrt(jnp.sum(g["Wh"] ** 2, axis=(1, 2))),
+                                  jnp.linalg.norm(g["WL"])[None]])
+            return p, opt_state, train_loss, gn
+        return p, opt_state, train_loss
 
     return train_step
 
@@ -217,11 +228,12 @@ def train(seed, data, a, param_lr, activity_lr, train_step, test_batch, opt):
     train_loader = _Batches(a.dataset, data, a.batch_size, True)
     test_loader = _Batches(a.dataset, data, a.batch_size, False)
 
-    rec = {"train_loss": [], "test_loss": [], "test_acc": [], "weight_change": []}
+    rec = {"train_loss": [], "test_loss": [], "test_acc": [], "weight_change": [], "grad_norm": []}
     it, stop = 0, None
     for epoch in range(a.max_epochs):
         for x, y in train_loader:
-            p, opt_state, loss = train_step(p, opt_state, x, y, alr)
+            out = train_step(p, opt_state, x, y, alr)
+            p, opt_state, loss = out[:3]
             rec["train_loss"].append(loss)
             it += 1
             if it % a.test_every == 0:
@@ -234,6 +246,8 @@ def train(seed, data, a, param_lr, activity_lr, train_step, test_batch, opt):
                 rec["test_acc"].append(float(jnp.mean(jnp.stack(ta))))
                 if a.log_weights:
                     rec["weight_change"].append(weight_change(p, p0))
+                if a.log_grads:
+                    rec["grad_norm"].append([float(v) for v in out[3]])
             lf = float(loss)
             if np.isnan(lf) or np.isinf(lf):
                 stop = "diverged"
@@ -268,6 +282,8 @@ def main():
     ap.add_argument("--seeds", type=int, nargs="+", default=[0, 1, 2])
     ap.add_argument("--log_weights", action="store_true")
     ap.add_argument("--freeze_hidden", action="store_true")
+    ap.add_argument("--freeze_range", type=int, nargs=2, default=None, metavar=("A", "B"))
+    ap.add_argument("--log_grads", action="store_true")
     a = ap.parse_args()
     if a.max_infer_iters is None:
         a.max_infer_iters = a.n_hidden
@@ -279,7 +295,13 @@ def main():
         os.chdir(UPSTREAM)
     fns = make_fns(a.param_type, a.d_in, a.width, a.n_hidden, a.act_fn, a.loss)
     opt = adam(a.freeze_hidden)
-    train_step = make_train_step(fns, a.max_infer_iters, opt)
+    mask = None
+    if a.freeze_range:
+        lo, hi = a.freeze_range
+        assert 1 <= lo <= hi <= a.n_hidden - 1, "hidden matrices are W_1 .. W_{H-1}"
+        idx = np.arange(1, a.n_hidden)
+        mask = jnp.asarray(~((idx >= lo) & (idx <= hi)), jnp.float32)
+    train_step = make_train_step(fns, a.max_infer_iters, opt, mask, a.log_grads)
     grid = len(a.param_lr) * len(a.activity_lr) > 1
     for plr in a.param_lr:
         for alr in a.activity_lr:
