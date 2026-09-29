@@ -593,3 +593,372 @@ Epoch 15
 Train loss: 0.0145091 [24384/60000]
 Avg test accuracy: 89.1727
 
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/long/bp/CIFAR10/ce_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.01/batch_size_128/20_epochs/0 with seed: 0
+Files already downloaded and verified
+Files already downloaded and verified
+
+Epoch 1
+-------------------------------
+Train loss: 1.7826624 [49664/50000]
+Avg test accuracy: 39.4631
+
+
+Epoch 2
+-------------------------------
+Train loss: 1.6897334 [49536/50000]
+Avg test accuracy: 41.6266
+
+
+Epoch 3
+-------------------------------
+Train loss: 1.7513673 [49408/50000]
+Avg test accuracy: 44.7015
+
+
+Epoch 4
+-------------------------------
+Train loss: 1.4321623 [49280/50000]
+Avg test accuracy: 46.5144
+
+
+Epoch 5
+-------------------------------
+Train loss: 1.5200148 [49152/50000]
+Avg test accuracy: 47.1354
+
+
+Epoch 6
+-------------------------------
+Train loss: 1.4431579 [49024/50000]
+Avg test accuracy: 46.9852
+
+
+Epoch 7
+-------------------------------
+Train loss: 1.5900655 [48896/50000]
+Avg test accuracy: 47.2356
+
+
+Epoch 8
+-------------------------------
+Train loss: 1.5470356 [48768/50000]
+Avg test accuracy: 48.3073
+
+
+Epoch 9
+-------------------------------
+Train loss: 1.4823401 [48640/50000]
+Avg test accuracy: 48.8281
+
+
+Epoch 10
+-------------------------------
+Train loss: 1.3368201 [48512/50000]
+Avg test accuracy: 49.2588
+
+
+Epoch 11
+-------------------------------
+Train loss: 1.3952514 [48384/50000]
+Avg test accuracy: 49.2889
+
+
+Epoch 12
+-------------------------------
+Train loss: 1.2134383 [48256/50000]
+Avg test accuracy: 50.9716
+
+
+Epoch 13
+-------------------------------
+Train loss: 1.3202665 [48128/50000]
+Avg test accuracy: 50.3205
+
+
+Epoch 14
+-------------------------------
+Train loss: 1.3918233 [48000/50000]
+Avg test accuracy: 51.0517
+
+
+Epoch 15
+-------------------------------
+Train loss: 1.1479664 [47872/50000]
+Avg test accuracy: 50.6110
+
+
+Epoch 16
+-------------------------------
+Train loss: 1.1953213 [47744/50000]
+Avg test accuracy: 52.4339
+
+
+Epoch 17
+-------------------------------
+Train loss: 1.3119140 [47616/50000]
+Avg test accuracy: 52.0333
+
+
+Epoch 18
+-------------------------------
+Train loss: 1.3360876 [47488/50000]
+Avg test accuracy: 51.9932
+
+
+Epoch 19
+-------------------------------
+Train loss: 1.4126506 [47360/50000]
+Avg test accuracy: 51.5224
+
+
+Epoch 20
+-------------------------------
+Train loss: 1.2101253 [47232/50000]
+Avg test accuracy: 51.1118
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/long/bp/CIFAR10/ce_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.01/batch_size_128/20_epochs/1 with seed: 1
+Files already downloaded and verified
+Files already downloaded and verified
+
+Epoch 1
+-------------------------------
+Train loss: 1.5604213 [49664/50000]
+Avg test accuracy: 39.4531
+
+
+Epoch 2
+-------------------------------
+Train loss: 1.6480306 [49536/50000]
+Avg test accuracy: 43.1691
+
+
+Epoch 3
+-------------------------------
+Train loss: 1.6434317 [49408/50000]
+Avg test accuracy: 43.3794
+
+
+Epoch 4
+-------------------------------
+Train loss: 1.5138648 [49280/50000]
+Avg test accuracy: 45.9736
+
+
+Epoch 5
+-------------------------------
+Train loss: 1.4000828 [49152/50000]
+Avg test accuracy: 47.0853
+
+
+Epoch 6
+-------------------------------
+Train loss: 1.4303321 [49024/50000]
+Avg test accuracy: 47.4860
+
+
+Epoch 7
+-------------------------------
+Train loss: 1.5704401 [48896/50000]
+Avg test accuracy: 49.5793
+
+
+Epoch 8
+-------------------------------
+Train loss: 1.2816598 [48768/50000]
+Avg test accuracy: 48.2372
+
+
+Epoch 9
+-------------------------------
+Train loss: 1.3411478 [48640/50000]
+Avg test accuracy: 48.5978
+
+
+Epoch 10
+-------------------------------
+Train loss: 1.4408666 [48512/50000]
+Avg test accuracy: 48.4876
+
+
+Epoch 11
+-------------------------------
+Train loss: 1.1139657 [48384/50000]
+Avg test accuracy: 49.5092
+
+
+Epoch 12
+-------------------------------
+Train loss: 1.2639946 [48256/50000]
+Avg test accuracy: 49.9800
+
+
+Epoch 13
+-------------------------------
+Train loss: 1.3688295 [48128/50000]
+Avg test accuracy: 50.9215
+
+
+Epoch 14
+-------------------------------
+Train loss: 1.2605646 [48000/50000]
+Avg test accuracy: 51.5325
+
+
+Epoch 15
+-------------------------------
+Train loss: 1.2386312 [47872/50000]
+Avg test accuracy: 51.4724
+
+
+Epoch 16
+-------------------------------
+Train loss: 1.3334451 [47744/50000]
+Avg test accuracy: 51.6126
+
+
+Epoch 17
+-------------------------------
+Train loss: 1.3670154 [47616/50000]
+Avg test accuracy: 51.1819
+
+
+Epoch 18
+-------------------------------
+Train loss: 1.1838686 [47488/50000]
+Avg test accuracy: 51.8329
+
+
+Epoch 19
+-------------------------------
+Train loss: 1.2043055 [47360/50000]
+Avg test accuracy: 52.2035
+
+
+Epoch 20
+-------------------------------
+Train loss: 1.3165363 [47232/50000]
+Avg test accuracy: 52.0533
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/long/bp/CIFAR10/ce_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.01/batch_size_128/20_epochs/2 with seed: 2
+Files already downloaded and verified
+Files already downloaded and verified
+
+Epoch 1
+-------------------------------
+Train loss: 1.8067435 [49664/50000]
+Avg test accuracy: 39.2929
+
+
+Epoch 2
+-------------------------------
+Train loss: 1.6278694 [49536/50000]
+Avg test accuracy: 41.6366
+
+
+Epoch 3
+-------------------------------
+Train loss: 1.4219267 [49408/50000]
+Avg test accuracy: 41.6366
+
+
+Epoch 4
+-------------------------------
+Train loss: 1.4597814 [49280/50000]
+Avg test accuracy: 44.6514
+
+
+Epoch 5
+-------------------------------
+Train loss: 1.4961269 [49152/50000]
+Avg test accuracy: 47.1254
+
+
+Epoch 6
+-------------------------------
+Train loss: 1.7216927 [49024/50000]
+Avg test accuracy: 47.2155
+
+
+Epoch 7
+-------------------------------
+Train loss: 1.4195627 [48896/50000]
+Avg test accuracy: 47.4058
+
+
+Epoch 8
+-------------------------------
+Train loss: 1.3306186 [48768/50000]
+Avg test accuracy: 48.1470
+
+
+Epoch 9
+-------------------------------
+Train loss: 1.4324857 [48640/50000]
+Avg test accuracy: 48.1871
+
+
+Epoch 10
+-------------------------------
+Train loss: 1.2364771 [48512/50000]
+Avg test accuracy: 48.8582
+
+
+Epoch 11
+-------------------------------
+Train loss: 1.2229438 [48384/50000]
+Avg test accuracy: 50.8914
+
+
+Epoch 12
+-------------------------------
+Train loss: 1.2809601 [48256/50000]
+Avg test accuracy: 50.3305
+
+
+Epoch 13
+-------------------------------
+Train loss: 1.2122633 [48128/50000]
+Avg test accuracy: 49.5192
+
+
+Epoch 14
+-------------------------------
+Train loss: 1.3265873 [48000/50000]
+Avg test accuracy: 50.9816
+
+
+Epoch 15
+-------------------------------
+Train loss: 1.2828231 [47872/50000]
+Avg test accuracy: 52.0633
+
+
+Epoch 16
+-------------------------------
+Train loss: 1.2268319 [47744/50000]
+Avg test accuracy: 50.9014
+
+
+Epoch 17
+-------------------------------
+Train loss: 1.2981715 [47616/50000]
+Avg test accuracy: 51.0417
+
+
+Epoch 18
+-------------------------------
+Train loss: 1.2381947 [47488/50000]
+Avg test accuracy: 51.8129
+
+
+Epoch 19
+-------------------------------
+Train loss: 1.1720235 [47360/50000]
+Avg test accuracy: 51.7228
+
+
+Epoch 20
+-------------------------------
+Train loss: 1.2278447 [47232/50000]
+Avg test accuracy: 53.2051
+

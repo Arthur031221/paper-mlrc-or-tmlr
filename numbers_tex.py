@@ -219,6 +219,20 @@ def main():
             f"ctwo{k}In": sci(row["weight_change"]["input"]),
         })
 
+    # Which side of the CIFAR-10 band the muPC seeds fell on.
+    cf = c2["datasets"].get("CIFAR10") if c2 else None
+    if cf:
+        from c2_summary import CRIT
+        lo, hi = CRIT["CIFAR10"]
+        runs = cf["mupc"]["runs"]
+        macros["ctwoCfAbove"] = str(sum(r > hi for r in runs))
+        macros["ctwoCfBelow"] = str(sum(r < lo for r in runs))
+        macros["ctwoCfNSeeds"] = str(len(runs))
+        macros["ctwoCfPcMin"] = f"{min(runs):.2f}"
+    else:
+        for key in ("ctwoCfAbove", "ctwoCfBelow", "ctwoCfNSeeds", "ctwoCfPcMin"):
+            macros[key] = "\\pending"
+
     done = [r for r in (c2["datasets"].values() if c2 else []) if r]
     macros["ctwoNPass"] = str(sum(r["pass"] for r in done)) if c2 and c2["complete"] else "\\pending"
 
