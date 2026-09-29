@@ -13,6 +13,16 @@ within one grid step (on both learning-rate axes) of it in all ten. The
 reference is taken from the depth sweep at H = 8; that sweep point and the
 width sweep point at N = 512 share settings apart from the test interval and
 are listed separately.
+
+Post hoc, descriptive, no threshold (defined after the width grids and part
+of the H = 16 grid had been seen, before the other depth grids finished): at
+each sweep point, with the reference cell c_ref and the best cell c_best,
+  regret = log10 score(c_ref) - log10 score(c_best), in decades of minimum
+           training loss; 0 when they match; None if c_ref is ineligible;
+  rank   = rank of c_ref among eligible cells (1 = best);
+  seed_regret = log10 m_k(c_ref) - log10 m_k(c_best) for each seed k.
+The minimum training loss is the unsmoothed minimum over per-minibatch losses.
+Taking the best cell of noisy seed means biases regret upwards.
 Usage: python c3_summary.py
 """
 import json
@@ -29,11 +39,15 @@ SWEEPS = [("width", n, f"width_N{n}_H8") for n in (64, 128, 256, 512, 1024)] + \
          [("depth", h, f"depth_N512_H{h}") for h in (8, 16, 32, 64, 128)]
 
 
-def cell_score(d):
+def seed_mins(d):
     recs = [json.loads(f.read_text()) for f in sorted(d.glob("seed*.json"))]
+    return recs, [min(r["train_loss"]) if r["train_loss"] else math.inf for r in recs]
+
+
+def cell_score(d):
+    recs, mins = seed_mins(d)
     if len(recs) < 3:
         return None, len(recs)
-    mins = [min(r["train_loss"]) if r["train_loss"] else math.inf for r in recs]
     if any(r["stop"] == "diverged" or not math.isfinite(m) for r, m in zip(recs, mins)):
         return math.inf, len(recs)
     return float(np.mean(mins)), len(recs)
@@ -72,7 +86,21 @@ if complete and ref:
                matches_depth=n_d, matches_width=n_w,
                all_within_one=all(r["within_one"] for r in rows))
     out["pass"] = n_d >= 4 and n_w >= 4 and out["all_within_one"]
+if ref:
+    for (axis, val, name), r in zip(SWEEPS, rows):
+        g, b = np.array(r["grid"], dtype=float), r["best"]
+        sc = g[ref[0], ref[1]]
+        if b is None or not np.isfinite(sc):
+            r.update(regret=None, rank=None, seed_regret=None)
+            continue
+        d = T / name
+        _, mr = seed_mins(d / f"plr{PLR[ref[0]]:g}_alr{ALR[ref[1]]:g}")
+        _, mb = seed_mins(d / f"plr{PLR[b[0]]:g}_alr{ALR[b[1]]:g}")
+        r["regret"] = float(np.log10(sc) - np.log10(g[b[0], b[1]]))
+        r["rank"] = int(np.sum(g[np.isfinite(g)] < sc)) + 1
+        r["seed_regret"] = [float(np.log10(x) - np.log10(y)) for x, y in zip(mr, mb)]
 (HERE / "results" / "c3.json").write_text(json.dumps(out, indent=1) + "\n")
 for r in rows:
-    print(f"{r['axis']:5s} {r['value']:5d} best {r['best_lr']} eligible {r['eligible_cells']}")
+    print(f"{r['axis']:5s} {r['value']:5d} best {r['best_lr']} eligible {r['eligible_cells']}"
+          f" regret {r.get('regret')} rank {r.get('rank')}")
 print({k: v for k, v in out.items() if k not in ("rows",)})
