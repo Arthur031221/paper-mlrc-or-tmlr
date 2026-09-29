@@ -1231,3 +1231,4 @@ plr 0.1 alr 100 seed 2: acc [] stop diverged 0.4 s
 plr 0.1 alr 50 seed 0: acc [] stop diverged 0.4 s
 plr 0.1 alr 50 seed 1: acc [] stop diverged 0.4 s
 plr 0.1 alr 50 seed 2: acc [] stop diverged 0.4 s
+plr 0.1 alr 10 seed 0: acc [91.84695434570312, 93.60977935791016, 94.3008804321289, 94.66146087646484, 94.9619369506836, 94.59134674072266, 94.97195434570312, 95.24238586425781, 95.43269348144531] stop None 111.4 s
