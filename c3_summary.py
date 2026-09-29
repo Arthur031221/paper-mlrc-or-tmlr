@@ -56,11 +56,12 @@ def cell_score(d):
 rows, complete = [], True
 for axis, val, name in SWEEPS:
     grid = np.full((len(PLR), len(ALR)), np.nan)
+    row_complete = True
     for i, p in enumerate(PLR):
         for j, a in enumerate(ALR):
             s, n = cell_score(T / name / f"plr{p:g}_alr{a:g}")
             if s is None:
-                complete = False
+                complete = row_complete = False
             else:
                 grid[i, j] = s
     finite = np.where(np.isfinite(grid), grid, np.inf)
@@ -68,7 +69,7 @@ for axis, val, name in SWEEPS:
     if np.isfinite(finite).any():
         i, j = np.unravel_index(np.argmin(finite), finite.shape)
         best = [int(i), int(j)]
-    rows.append({"axis": axis, "value": val, "best": best,
+    rows.append({"axis": axis, "value": val, "complete": row_complete, "best": best,
                  "best_lr": [PLR[best[0]], ALR[best[1]]] if best else None,
                  "eligible_cells": int(np.isfinite(grid).sum()),
                  "grid": [[None if not np.isfinite(x) else float(x) for x in r] for r in grid]})
