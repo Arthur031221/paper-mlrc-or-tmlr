@@ -25,7 +25,8 @@ the official loaders themselves.
 trains only the input and output maps (an added-value arm, not in the paper).
 --freeze_range A B keeps hidden matrices W_A .. W_B (1-based, inclusive) at
 initialisation; their Adam updates are zeroed. --log_grads records the
-Frobenius norm of each layer's weight gradient at every test point.
+Frobenius norm of each layer's weight gradient at iteration 1 and at every
+test point.
 
 Usage: python lean_mupc.py --out runs/lean/<name> --n_hidden 8 --param_type mupc
        --param_lr 1e-1 --activity_lr 5e-1 --seeds 0 1 2 [--log_weights]
@@ -236,6 +237,8 @@ def train(seed, data, a, param_lr, activity_lr, train_step, test_batch, opt):
             p, opt_state, loss = out[:3]
             rec["train_loss"].append(loss)
             it += 1
+            if a.log_grads and it == 1:
+                rec["grad_norm_it1"] = [float(v) for v in out[3]]
             if it % a.test_every == 0:
                 tl, ta = [], []
                 for x, y in test_loader:

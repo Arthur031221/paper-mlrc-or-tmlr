@@ -7,19 +7,24 @@ calls the official train_mlp with the official argument names and defaults.
 --freeze_hidden (not an official option) zeroes the gradients of the hidden
 layers, so Adam leaves them at initialisation and only the input map and the
 readout train: the BP counterpart of lean_mupc.py --freeze_hidden.
+--freeze_range A B zeroes the gradients of hidden layers A .. B only (1-based,
+inclusive; layer i is model.layers[i]), as lean_mupc.py --freeze_range.
 Run from the official repository root, as the job scripts do.
 """
 import sys
 
 from experiments.mupc_paper import train_bpn as m
 
-def frozen_hidden_step(m):
-    """The official make_step with the hidden-layer gradients set to zero."""
+def frozen_hidden_step(m, lo=None, hi=None):
+    """The official make_step with the gradients of hidden layers lo .. hi
+    (default: all hidden layers) set to zero."""
     import equinox as eqx
     import jax.numpy as jnp
 
     def hidden(g):
-        return [g.layers[i][1].weight for i in range(1, len(g.layers) - 1)]
+        a, b = (1, len(g.layers) - 2) if lo is None else (lo, hi)
+        assert 1 <= a <= b <= len(g.layers) - 2
+        return [g.layers[i][1].weight for i in range(a, b + 1)]
 
     @eqx.filter_jit
     def make_step(model, optim, opt_state, x, y, loss_id="mse"):
@@ -40,6 +45,11 @@ if __name__ == "__main__":
     if "--freeze_hidden" in sys.argv:
         sys.argv.remove("--freeze_hidden")
         m.make_step = frozen_hidden_step(m)
+    if "--freeze_range" in sys.argv:
+        i = sys.argv.index("--freeze_range")
+        lo, hi = int(sys.argv[i + 1]), int(sys.argv[i + 2])
+        del sys.argv[i:i + 3]
+        m.make_step = frozen_hidden_step(m, lo, hi)
     orig = m.MLP
     m.MLP = lambda **kw: orig(**{**kw, "d_in": D_IN[dataset]})
     src = open(m.__file__).read()
