@@ -698,9 +698,15 @@
    "axis": "depth",
    "value": 128,
    "complete": false,
-   "best": null,
-   "best_lr": null,
-   "eligible_cells": 0,
+   "best": [
+    1,
+    5
+   ],
+   "best_lr": [
+    0.1,
+    5
+   ],
+   "eligible_cells": 14,
    "grid": [
     [
      null,
@@ -709,32 +715,32 @@
      null,
      null,
      null,
-     null,
-     null,
-     null,
-     null,
-     null
+     0.0011640759573007624,
+     0.00121701726069053,
+     0.0018014611753945549,
+     0.0023659938791145882,
+     0.003641360361749927
     ],
     [
      null,
      null,
      null,
      null,
-     null,
-     null,
-     null,
-     null,
-     null,
-     null,
-     null
+     0.0013985015684738755,
+     0.0011019170827542741,
+     0.0016108212294057012,
+     0.0020563878351822495,
+     0.0034104778120915094,
+     0.003935682587325573,
+     0.005515302065759897
     ],
     [
      null,
      null,
      null,
      null,
-     null,
-     null,
+     0.001164810829019795,
+     0.0013595841592177749,
      null,
      null,
      null,
@@ -755,9 +761,13 @@
      null
     ]
    ],
-   "regret": null,
-   "rank": null,
-   "seed_regret": null
+   "regret": 0.16489842876641125,
+   "rank": 7,
+   "seed_regret": [
+    0.1460700912782773,
+    0.1936923344200676,
+    0.16020098770791824
+   ]
   }
  ],
  "complete": false
