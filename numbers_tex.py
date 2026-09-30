@@ -251,12 +251,12 @@ def main():
 
     # Gradient-norm profile at the notebook cell (grad_profile.py), muPC only.
     gp = load("grad_profile.json")
-    grad_keys = ["gradRatioIt1Min", "gradRatioIt1Max", "gradRatioLastMin", "gradRatioLastMax"]
+    grad_keys = ["gradRatioItOneMin", "gradRatioItOneMax", "gradRatioLastMin", "gradRatioLastMax"]
     if gp and gp.get("mupc_full"):
         it1 = [v["it1"]["ratio"] for v in gp["mupc_full"].values()]
         it900 = [v["it900"]["ratio"] for v in gp["mupc_full"].values()]
-        macros["gradRatioIt1Min"] = f"{min(it1):.0f}"
-        macros["gradRatioIt1Max"] = f"{max(it1):.0f}"
+        macros["gradRatioItOneMin"] = f"{min(it1):.0f}"
+        macros["gradRatioItOneMax"] = f"{max(it1):.0f}"
         macros["gradRatioLastMin"] = f"{min(it900):.0f}"
         macros["gradRatioLastMax"] = f"{max(it900):.0f}"
     else:
