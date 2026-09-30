@@ -152,6 +152,13 @@ def main():
     else:
         macros["addPcTMinusFull"] = "\\pending"
 
+    gpu_shallow = load("gpu_shallow_check.json")
+    for k in ("gpuShallowMean", "gpuShallowSd"):
+        macros[k] = "\\pending"
+    if gpu_shallow:
+        macros["gpuShallowMean"] = f"{gpu_shallow['mean']:.2f}"
+        macros["gpuShallowSd"] = f"{gpu_shallow['sd']:.2f}"
+
     # Partial-freeze test (freeze_summary.py). Nb: notebook cell, Tu: H = 128 grid-best cell.
     frz = load("freeze.json") or {}
     arm_names = {"PcFull": "mupc_full", "PcLow": "mupc_frz1-121", "PcTop": "mupc_frz122-127",
@@ -240,6 +247,20 @@ def main():
         })
     else:
         for k in bpp_keys:
+            macros[k] = "\\pending"
+
+    # Gradient-norm profile at the notebook cell (grad_profile.py), muPC only.
+    gp = load("grad_profile.json")
+    grad_keys = ["gradRatioIt1Min", "gradRatioIt1Max", "gradRatioLastMin", "gradRatioLastMax"]
+    if gp and gp.get("mupc_full"):
+        it1 = [v["it1"]["ratio"] for v in gp["mupc_full"].values()]
+        it900 = [v["it900"]["ratio"] for v in gp["mupc_full"].values()]
+        macros["gradRatioIt1Min"] = f"{min(it1):.0f}"
+        macros["gradRatioIt1Max"] = f"{max(it1):.0f}"
+        macros["gradRatioLastMin"] = f"{min(it900):.0f}"
+        macros["gradRatioLastMax"] = f"{max(it900):.0f}"
+    else:
+        for k in grad_keys:
             macros[k] = "\\pending"
 
     c2 = load("c2.json")
