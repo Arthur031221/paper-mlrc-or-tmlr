@@ -1,0 +1,544 @@
+plr 0.1 alr 0.5 seed 0: acc [94.53125, 95.99359130859375, 96.58453369140625] stop None 58.4 s
+plr 0.1 alr 0.5 seed 1: acc [94.64142608642578, 95.58293151855469, 96.6446304321289] stop None 52.1 s
+plr 0.1 alr 0.5 seed 2: acc [94.68148803710938, 95.8934326171875, 96.36418151855469] stop None 51.9 s
+plr 0.1 alr 0.5 seed 3: acc [94.43109130859375, 95.7431869506836, 96.35416412353516] stop None 52.4 s
+plr 0.1 alr 0.5 seed 4: acc [94.40103912353516, 95.5428695678711, 96.60456848144531] stop None 52.0 s
+plr 0.1 alr 0.5 seed 0: acc [94.47115325927734, 96.03365325927734, 96.65464782714844] stop None 58.7 s
+plr 0.1 alr 0.5 seed 1: acc [94.63140869140625, 95.55288696289062, 96.55448913574219] stop None 51.8 s
+plr 0.1 alr 0.5 seed 2: acc [94.71154022216797, 95.90345001220703, 96.34415435791016] stop None 52.0 s
+plr 0.1 alr 0.5 seed 3: acc [94.47115325927734, 95.703125, 96.39423370361328] stop None 52.1 s
+plr 0.1 alr 0.5 seed 4: acc [94.34095001220703, 95.62300109863281, 96.65464782714844] stop None 52.4 s
+plr 0.1 alr 0.5 seed 0: acc [88.64183044433594, 90.48477935791016, 90.99559783935547] stop None 57.4 s
+plr 0.1 alr 0.5 seed 1: acc [88.36138153076172, 89.6434326171875, 90.95552825927734] stop None 51.8 s
+plr 0.1 alr 0.5 seed 2: acc [88.92227935791016, 90.37460327148438, 90.48477935791016] stop None 52.1 s
+plr 0.1 alr 0.5 seed 3: acc [88.5116195678711, 89.92388153076172, 90.35456848144531] stop None 52.2 s
+plr 0.1 alr 0.5 seed 4: acc [87.95072174072266, 89.73357391357422, 90.56490325927734] stop None 52.7 s
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/freeze/bp_full/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/1_epochs/0 with seed: 0
+
+Epoch 1
+-------------------------------
+Train loss: 0.0071366 [19136/60000]
+Avg test accuracy: 95.2524
+
+Train loss: 0.0106164 [38336/60000]
+Avg test accuracy: 96.4744
+
+Train loss: 0.0072825 [57536/60000]
+Avg test accuracy: 96.2841
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/freeze/bp_full/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/1_epochs/1 with seed: 1
+
+Epoch 1
+-------------------------------
+Train loss: 0.0113301 [19136/60000]
+Avg test accuracy: 94.9419
+
+Train loss: 0.0089839 [38336/60000]
+Avg test accuracy: 96.2841
+
+Train loss: 0.0081012 [57536/60000]
+Avg test accuracy: 97.0553
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/freeze/bp_full/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/1_epochs/2 with seed: 2
+
+Epoch 1
+-------------------------------
+Train loss: 0.0084810 [19136/60000]
+Avg test accuracy: 94.2308
+
+Train loss: 0.0047460 [38336/60000]
+Avg test accuracy: 96.3642
+
+Train loss: 0.0069906 [57536/60000]
+Avg test accuracy: 96.5545
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/freeze/bp_full/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/1_epochs/3 with seed: 3
+
+Epoch 1
+-------------------------------
+Train loss: 0.0107452 [19136/60000]
+Avg test accuracy: 95.2724
+
+Train loss: 0.0075433 [38336/60000]
+Avg test accuracy: 95.9635
+
+Train loss: 0.0082582 [57536/60000]
+Avg test accuracy: 96.2941
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/freeze/bp_full/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/1_epochs/4 with seed: 4
+
+Epoch 1
+-------------------------------
+Train loss: 0.0102041 [19136/60000]
+Avg test accuracy: 95.0721
+
+Train loss: 0.0040588 [38336/60000]
+Avg test accuracy: 95.3025
+
+Train loss: 0.0065012 [57536/60000]
+Avg test accuracy: 96.2240
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/freeze/bp_frz1-121/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/1_epochs/0 with seed: 0
+
+Epoch 1
+-------------------------------
+Train loss: 0.0207048 [19136/60000]
+Avg test accuracy: 92.1975
+
+Train loss: 0.0199434 [38336/60000]
+Avg test accuracy: 94.4411
+
+Train loss: 0.0106861 [57536/60000]
+Avg test accuracy: 95.4427
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/freeze/bp_frz1-121/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/1_epochs/1 with seed: 1
+
+Epoch 1
+-------------------------------
+Train loss: 0.0194316 [19136/60000]
+Avg test accuracy: 92.0473
+
+Train loss: 0.0137537 [38336/60000]
+Avg test accuracy: 94.3610
+
+Train loss: 0.0156110 [57536/60000]
+Avg test accuracy: 95.4127
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/freeze/bp_frz1-121/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/1_epochs/2 with seed: 2
+
+Epoch 1
+-------------------------------
+Train loss: 0.0151208 [19136/60000]
+Avg test accuracy: 92.4679
+
+Train loss: 0.0139082 [38336/60000]
+Avg test accuracy: 94.5813
+
+Train loss: 0.0079155 [57536/60000]
+Avg test accuracy: 95.3225
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/freeze/bp_frz1-121/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/1_epochs/3 with seed: 3
+
+Epoch 1
+-------------------------------
+Train loss: 0.0228360 [19136/60000]
+Avg test accuracy: 92.4279
+
+Train loss: 0.0102551 [38336/60000]
+Avg test accuracy: 94.6815
+
+Train loss: 0.0135648 [57536/60000]
+Avg test accuracy: 95.4928
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/freeze/bp_frz1-121/MNIST/mse_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.005/batch_size_64/1_epochs/4 with seed: 4
+
+Epoch 1
+-------------------------------
+Train loss: 0.0220523 [19136/60000]
+Avg test accuracy: 92.1374
+
+Train loss: 0.0117261 [38336/60000]
+Avg test accuracy: 94.6114
+
+Train loss: 0.0119970 [57536/60000]
+Avg test accuracy: 95.5829
+
+plr 0.1 alr 0.1 seed 0: acc [95.79327392578125, 96.76482391357422, 97.05529022216797] stop None 5.8 s
+plr 0.1 alr 0.1 seed 1: acc [95.21234130859375, 96.63461303710938, 97.05529022216797] stop None 3.1 s
+plr 0.1 alr 0.1 seed 2: acc [95.48277282714844, 96.63461303710938, 97.07532501220703] stop None 2.9 s
+{"notebook": {"mupc_rule": "top six suffice", "bp_rule": "lower layers contribute"}}
+Files already downloaded and verified
+Files already downloaded and verified
+plr 0.1 alr 0.01 seed 0: acc [33.203125, 34.7856559753418, 34.705528259277344, 35.55689239501953, 37.93069076538086, 38.07091522216797, 38.00080108642578, 37.13942337036133, 37.980770111083984, 38.96234130859375, 38.96234130859375, 41.12580108642578, 40.434696197509766, 40.474761962890625, 40.70512771606445, 42.0072135925293, 41.796875, 40.9955940246582, 41.887020111083984, 42.097354888916016] stop None 1083.8 s
+Files already downloaded and verified
+Files already downloaded and verified
+plr 0.1 alr 0.01 seed 1: acc [33.44350814819336, 34.84575271606445, 35.737178802490234, 36.7387809753418, 37.109375, 36.879005432128906, 38.4915885925293, 38.25120162963867, 38.912261962890625, 36.61859130859375, 39.72355651855469, 38.471553802490234, 40.184295654296875, 39.60336685180664, 41.02564239501953, 40.69511413574219, 41.456329345703125, 39.67347717285156, 39.87379837036133, 41.19591522216797] stop None 1091.9 s
+Files already downloaded and verified
+Files already downloaded and verified
+plr 0.1 alr 0.01 seed 2: acc [32.89262771606445, 35.33654022216797, 35.22636413574219, 36.57852554321289, 36.74879837036133, 38.21113967895508, 37.48998260498047, 39.783653259277344, 39.58333206176758, 39.85376739501953, 39.49319076538086, 40.34455108642578, 38.07091522216797, 40.975563049316406, 40.574920654296875, 40.965545654296875, 41.18589782714844, 41.596553802490234, 42.30769348144531, 42.35777282714844] stop None 1088.4 s
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/freeze_cifar/bp_frz1-121/CIFAR10/ce_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.01/batch_size_128/20_epochs/0 with seed: 0
+Files already downloaded and verified
+Files already downloaded and verified
+
+Epoch 1
+-------------------------------
+Train loss: 1.8373820 [49664/50000]
+Avg test accuracy: 38.6819
+
+
+Epoch 2
+-------------------------------
+Train loss: 1.7471671 [49536/50000]
+Avg test accuracy: 41.1859
+
+
+Epoch 3
+-------------------------------
+Train loss: 1.7478648 [49408/50000]
+Avg test accuracy: 41.8069
+
+
+Epoch 4
+-------------------------------
+Train loss: 1.4811027 [49280/50000]
+Avg test accuracy: 43.8502
+
+
+Epoch 5
+-------------------------------
+Train loss: 1.5968604 [49152/50000]
+Avg test accuracy: 45.2825
+
+
+Epoch 6
+-------------------------------
+Train loss: 1.4335444 [49024/50000]
+Avg test accuracy: 45.7131
+
+
+Epoch 7
+-------------------------------
+Train loss: 1.6077944 [48896/50000]
+Avg test accuracy: 46.1639
+
+
+Epoch 8
+-------------------------------
+Train loss: 1.6488478 [48768/50000]
+Avg test accuracy: 46.6146
+
+
+Epoch 9
+-------------------------------
+Train loss: 1.5376338 [48640/50000]
+Avg test accuracy: 46.0837
+
+
+Epoch 10
+-------------------------------
+Train loss: 1.3792818 [48512/50000]
+Avg test accuracy: 47.1354
+
+
+Epoch 11
+-------------------------------
+Train loss: 1.4908403 [48384/50000]
+Avg test accuracy: 47.4659
+
+
+Epoch 12
+-------------------------------
+Train loss: 1.3638712 [48256/50000]
+Avg test accuracy: 48.0669
+
+
+Epoch 13
+-------------------------------
+Train loss: 1.3351762 [48128/50000]
+Avg test accuracy: 48.5176
+
+
+Epoch 14
+-------------------------------
+Train loss: 1.4813964 [48000/50000]
+Avg test accuracy: 48.7580
+
+
+Epoch 15
+-------------------------------
+Train loss: 1.2296693 [47872/50000]
+Avg test accuracy: 48.0369
+
+
+Epoch 16
+-------------------------------
+Train loss: 1.3012440 [47744/50000]
+Avg test accuracy: 48.9583
+
+
+Epoch 17
+-------------------------------
+Train loss: 1.4423252 [47616/50000]
+Avg test accuracy: 49.4091
+
+
+Epoch 18
+-------------------------------
+Train loss: 1.4741626 [47488/50000]
+Avg test accuracy: 49.9499
+
+
+Epoch 19
+-------------------------------
+Train loss: 1.4412926 [47360/50000]
+Avg test accuracy: 50.0200
+
+
+Epoch 20
+-------------------------------
+Train loss: 1.2766266 [47232/50000]
+Avg test accuracy: 50.0601
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/freeze_cifar/bp_frz1-121/CIFAR10/ce_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.01/batch_size_128/20_epochs/1 with seed: 1
+Files already downloaded and verified
+Files already downloaded and verified
+
+Epoch 1
+-------------------------------
+Train loss: 1.6233598 [49664/50000]
+Avg test accuracy: 39.1827
+
+
+Epoch 2
+-------------------------------
+Train loss: 1.5938392 [49536/50000]
+Avg test accuracy: 42.1875
+
+
+Epoch 3
+-------------------------------
+Train loss: 1.6260211 [49408/50000]
+Avg test accuracy: 42.2376
+
+
+Epoch 4
+-------------------------------
+Train loss: 1.5935051 [49280/50000]
+Avg test accuracy: 44.4211
+
+
+Epoch 5
+-------------------------------
+Train loss: 1.4347093 [49152/50000]
+Avg test accuracy: 44.4812
+
+
+Epoch 6
+-------------------------------
+Train loss: 1.4816260 [49024/50000]
+Avg test accuracy: 44.9820
+
+
+Epoch 7
+-------------------------------
+Train loss: 1.6406564 [48896/50000]
+Avg test accuracy: 45.3826
+
+
+Epoch 8
+-------------------------------
+Train loss: 1.4374996 [48768/50000]
+Avg test accuracy: 45.8133
+
+
+Epoch 9
+-------------------------------
+Train loss: 1.4795327 [48640/50000]
+Avg test accuracy: 46.5144
+
+
+Epoch 10
+-------------------------------
+Train loss: 1.4303842 [48512/50000]
+Avg test accuracy: 46.4844
+
+
+Epoch 11
+-------------------------------
+Train loss: 1.2610419 [48384/50000]
+Avg test accuracy: 47.4960
+
+
+Epoch 12
+-------------------------------
+Train loss: 1.3466493 [48256/50000]
+Avg test accuracy: 46.7949
+
+
+Epoch 13
+-------------------------------
+Train loss: 1.4042621 [48128/50000]
+Avg test accuracy: 46.9451
+
+
+Epoch 14
+-------------------------------
+Train loss: 1.3709012 [48000/50000]
+Avg test accuracy: 49.8197
+
+
+Epoch 15
+-------------------------------
+Train loss: 1.3591452 [47872/50000]
+Avg test accuracy: 48.3373
+
+
+Epoch 16
+-------------------------------
+Train loss: 1.5423205 [47744/50000]
+Avg test accuracy: 48.3774
+
+
+Epoch 17
+-------------------------------
+Train loss: 1.4363617 [47616/50000]
+Avg test accuracy: 49.8798
+
+
+Epoch 18
+-------------------------------
+Train loss: 1.2884922 [47488/50000]
+Avg test accuracy: 49.8197
+
+
+Epoch 19
+-------------------------------
+Train loss: 1.3000622 [47360/50000]
+Avg test accuracy: 49.4491
+
+
+Epoch 20
+-------------------------------
+Train loss: 1.3946030 [47232/50000]
+Avg test accuracy: 49.8498
+
+Starting training with config: /home/levi/oss-engine/papers/mlrc-or-tmlr/code/runs/freeze_cifar/bp_frz1-121/CIFAR10/ce_loss/width_512/128_n_hidden/relu/depth_mup_param/adam/lr_0.01/batch_size_128/20_epochs/2 with seed: 2
+Files already downloaded and verified
+Files already downloaded and verified
+
+Epoch 1
+-------------------------------
+Train loss: 1.8694488 [49664/50000]
+Avg test accuracy: 39.0525
+
+
+Epoch 2
+-------------------------------
+Train loss: 1.6466097 [49536/50000]
+Avg test accuracy: 41.5665
+
+
+Epoch 3
+-------------------------------
+Train loss: 1.4622223 [49408/50000]
+Avg test accuracy: 42.8686
+
+
+Epoch 4
+-------------------------------
+Train loss: 1.5155382 [49280/50000]
+Avg test accuracy: 43.3093
+
+
+Epoch 5
+-------------------------------
+Train loss: 1.5636896 [49152/50000]
+Avg test accuracy: 45.6030
+
+
+Epoch 6
+-------------------------------
+Train loss: 1.6812292 [49024/50000]
+Avg test accuracy: 45.4928
+
+
+Epoch 7
+-------------------------------
+Train loss: 1.4221182 [48896/50000]
+Avg test accuracy: 45.7432
+
+
+Epoch 8
+-------------------------------
+Train loss: 1.4244502 [48768/50000]
+Avg test accuracy: 46.3141
+
+
+Epoch 9
+-------------------------------
+Train loss: 1.4974422 [48640/50000]
+Avg test accuracy: 47.0453
+
+
+Epoch 10
+-------------------------------
+Train loss: 1.2693547 [48512/50000]
+Avg test accuracy: 46.1538
+
+
+Epoch 11
+-------------------------------
+Train loss: 1.2960480 [48384/50000]
+Avg test accuracy: 47.5561
+
+
+Epoch 12
+-------------------------------
+Train loss: 1.4248582 [48256/50000]
+Avg test accuracy: 47.7364
+
+
+Epoch 13
+-------------------------------
+Train loss: 1.2914467 [48128/50000]
+Avg test accuracy: 46.9651
+
+
+Epoch 14
+-------------------------------
+Train loss: 1.4723470 [48000/50000]
+Avg test accuracy: 48.4075
+
+
+Epoch 15
+-------------------------------
+Train loss: 1.3804679 [47872/50000]
+Avg test accuracy: 49.8197
+
+
+Epoch 16
+-------------------------------
+Train loss: 1.3667322 [47744/50000]
+Avg test accuracy: 48.7480
+
+
+Epoch 17
+-------------------------------
+Train loss: 1.4026648 [47616/50000]
+Avg test accuracy: 49.5593
+
+
+Epoch 18
+-------------------------------
+Train loss: 1.4112468 [47488/50000]
+Avg test accuracy: 49.2488
+
+
+Epoch 19
+-------------------------------
+Train loss: 1.3202091 [47360/50000]
+Avg test accuracy: 49.3389
+
+
+Epoch 20
+-------------------------------
+Train loss: 1.3328049 [47232/50000]
+Avg test accuracy: 50.6711
+
+{"notebook": {"mupc_rule": "top six suffice", "bp_rule": "lower layers contribute"}}
+plr 0.1 alr 5 seed 0: acc [94.60136413574219, 95.18228912353516, 95.59294891357422] stop None 58.1 s
+plr 0.1 alr 5 seed 1: acc [94.39102935791016, 95.33253479003906, 95.90345001220703] stop None 52.2 s
+plr 0.1 alr 5 seed 2: acc [94.27083587646484, 95.46273803710938, 95.703125] stop None 52.1 s
+plr 0.1 alr 5 seed 3: acc [94.3008804321289, 95.48277282714844, 95.6630630493164] stop None 52.9 s
+plr 0.1 alr 5 seed 4: acc [94.21073913574219, 95.17227935791016, 95.14222717285156] stop None 52.0 s
+plr 0.1 alr 5 seed 0: acc [94.80168151855469, 96.2540054321289, 96.70472717285156] stop None 59.1 s
+plr 0.1 alr 5 seed 1: acc [94.55128479003906, 95.79327392578125, 96.484375] stop None 52.0 s
+plr 0.1 alr 5 seed 2: acc [94.89183044433594, 96.01362609863281, 96.53445434570312] stop None 52.9 s
+plr 0.1 alr 5 seed 3: acc [94.52123260498047, 95.88341522216797, 96.37419891357422] stop None 52.1 s
+plr 0.1 alr 5 seed 4: acc [94.46113586425781, 95.60296630859375, 96.41426086425781] stop None 52.9 s
+plr 0.1 alr 5 seed 0: acc [94.4911880493164, 95.9334945678711, 96.47435760498047] stop None 57.4 s
+plr 0.1 alr 5 seed 1: acc [94.62139892578125, 95.68309783935547, 96.37419891357422] stop None 52.6 s
+plr 0.1 alr 5 seed 2: acc [94.59134674072266, 95.94351196289062, 96.39423370361328] stop None 52.3 s
+plr 0.1 alr 5 seed 3: acc [94.19070434570312, 95.64302825927734, 96.41426086425781] stop None 52.7 s
+plr 0.1 alr 5 seed 4: acc [94.26081848144531, 95.68309783935547, 96.49439239501953] stop None 52.4 s
+{"notebook": {"mupc_rule": "top six suffice", "bp_rule": "lower layers contribute"}, "tuned": {"mupc_rule": "top six suffice"}}

@@ -1,0 +1,70 @@
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 64
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: mupc
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 64
+  Activity optim: gd
+  Activity lr: 0.5
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 0
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 64
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: mupc
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 64
+  Activity optim: gd
+  Activity lr: 0.5
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 1
+
+
+Starting training experiment with configuration:
+
+  Dataset: MNIST
+  Loss: mse
+  Width: 512
+  N hidden: 64
+  Act fn: relu
+  Use skips: True
+  Weight init: standard_gauss
+  Param type: mupc
+  Param optim: adam
+  Param lr: 0.1
+  Batch size: 64
+  Max infer iters: 64
+  Activity optim: gd
+  Activity lr: 0.5
+  Activity decay: 0
+  Weight decay: 0
+  Spectral penalty: 0
+  Max epochs: 1
+  Seed: 2
+
+{'n_official': 3, 'n_lean': 3, 'offSixtyfourMean': '96.59', 'offSixtyfourSd': '0.06', 'offSixtyfourLean': '96.63', 'offSixtyfourAgree': 'within the agreement rule', 'test_point_index': 2}

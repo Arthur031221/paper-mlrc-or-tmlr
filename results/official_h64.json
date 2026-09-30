@@ -1,0 +1,9 @@
+{
+ "n_official": 3,
+ "n_lean": 3,
+ "offSixtyfourMean": "96.59",
+ "offSixtyfourSd": "0.06",
+ "offSixtyfourLean": "96.63",
+ "offSixtyfourAgree": "within the agreement rule",
+ "test_point_index": 2
+}
