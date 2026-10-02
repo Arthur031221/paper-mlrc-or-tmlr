@@ -30,6 +30,7 @@ def last(accs):
 
 runs = defaultdict(dict)   # (source, method, H) -> seed -> test accuracies
 stops = defaultdict(dict)  # (source, method, H) -> seed -> stop reason
+iterations = defaultdict(dict)  # (source, method, H) -> seed -> final update
 for f in (HERE / "runs" / "fig1").rglob("test_accs.npy"):
     parts = f.relative_to(HERE / "runs" / "fig1").parts
     h = next(int(p.split("_")[0]) for p in parts if p.endswith("_n_hidden"))
@@ -44,6 +45,7 @@ for f in (HERE / "runs" / "lean_fig1").glob("*_H*/seed*.json"):
     key = ("lean", pt, int(h))
     runs[key][r["seed"]] = r["test_acc"]
     stops[key][r["seed"]] = r.get("stop")
+    iterations[key][r["seed"]] = r.get("iterations")
 
 rows = []
 for (src, method, h), seeds in sorted(runs.items()):
@@ -54,6 +56,7 @@ for (src, method, h), seeds in sorted(runs.items()):
     rows.append({"source": src, "method": method, "n_hidden": h, "seeds": sorted(seeds),
                  "stopped": [len(seeds[s]) < 3 for s in ordered_seeds],
                  "stop_reasons": [stops[(src, method, h)].get(s) for s in ordered_seeds],
+                 "iterations": [iterations[(src, method, h)].get(s) for s in ordered_seeds],
                  "final_accs": finals, "measured_accs": measured,
                  "mean": float(np.mean(measured)) if all_measured else None,
                  "sd": float(np.std(measured, ddof=1)) if all_measured and len(measured) > 1 else None})
@@ -69,15 +72,17 @@ complete = all(r and len(r["seeds"]) == 3 for r in mupc + sp_deep)
 out = {"rows": rows, "complete": complete}
 if complete:
     means = [r["mean"] for r in mupc]
-    sp_runs = [(acc, stop) for r in sp_deep for acc, stop in zip(r["measured_accs"], r["stop_reasons"])]
-    sp_values = [acc for acc, _ in sp_runs if acc is not None]
-    sp_outcomes = [stop == "diverged" or (acc is not None and acc <= 15.0) for acc, stop in sp_runs]
+    sp_runs = [(acc, stop, n) for r in sp_deep
+               for acc, stop, n in zip(r["measured_accs"], r["stop_reasons"], r["iterations"])]
+    sp_values = [acc for acc, _, _ in sp_runs if acc is not None]
+    sp_outcomes = [(stop == "diverged" and n is not None and n < 900) or
+                   (acc is not None and acc <= 15.0) for acc, stop, n in sp_runs]
     out.update({
         "mupc_min_mean": min(means), "mupc_max_mean": max(means),
         "mupc_spread": max(means) - min(means),
         "mupc_min_run": min(min(r["measured_accs"]) for r in mupc),
         "sp_deep_max": max(sp_values) if sp_values else None,
-        "sp_accuracy_evaluable": all(acc is not None for acc, _ in sp_runs),
+        "sp_accuracy_evaluable": all(acc is not None for acc, _, _ in sp_runs),
         "pass_mupc": min(means) >= 90.0 and max(means) - min(means) <= 3.0,
         "pass_sp": all(sp_outcomes),
     })

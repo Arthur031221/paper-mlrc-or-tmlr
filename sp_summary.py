@@ -65,10 +65,11 @@ if complete:
     deep = [r for r in out["rows"] if r["H"] >= 64]
     out["spEligibleDeep"] = sum(r["eligible"] for r in deep)
     out["spMaxDeep"] = f"{max(deep_accs):.2f}" if deep_accs else "none"
-    if not deep_accs:
+    if any(r["best_acc"] is not None and r["best_acc"] > 15 for r in deep):
+        out["spVerdict"] = "did not hold"
+    elif any(r["best_acc"] is None for r in deep):
         out["spVerdict"] = "not evaluable"
     else:
-        held = all(r["best_acc"] is not None and r["best_acc"] <= 15 for r in deep)
-        out["spVerdict"] = "held" if held else "did not hold"
+        out["spVerdict"] = "held"
 (HERE / "results" / "sp_grid.json").write_text(json.dumps(out, indent=1))
 print({k: v for k, v in out.items() if k != "rows"})

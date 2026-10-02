@@ -19,6 +19,11 @@
     null,
     null
    ],
+   "iterations": [
+    937,
+    937,
+    937
+   ],
    "final_accs": [
     96.88501739501953,
     96.73477935791016,
@@ -50,6 +55,11 @@
     null,
     null,
     null
+   ],
+   "iterations": [
+    937,
+    937,
+    937
    ],
    "final_accs": [
     96.88501739501953,
@@ -83,6 +93,11 @@
     null,
     null
    ],
+   "iterations": [
+    937,
+    937,
+    937
+   ],
    "final_accs": [
     96.82492065429688,
     96.75480651855469,
@@ -114,6 +129,11 @@
     null,
     null,
     null
+   ],
+   "iterations": [
+    937,
+    937,
+    937
    ],
    "final_accs": [
     96.72476196289062,
@@ -147,6 +167,11 @@
     null,
     null
    ],
+   "iterations": [
+    937,
+    937,
+    937
+   ],
    "final_accs": [
     96.58453369140625,
     96.6446304321289,
@@ -178,6 +203,11 @@
     "no_learning",
     "no_learning",
     "no_learning"
+   ],
+   "iterations": [
+    300,
+    300,
+    300
    ],
    "final_accs": [
     11.348156929016113,
@@ -211,6 +241,11 @@
     "diverged",
     "diverged"
    ],
+   "iterations": [
+    10,
+    13,
+    10
+   ],
    "final_accs": [
     10.0,
     10.0,
@@ -242,6 +277,11 @@
     "diverged",
     "diverged",
     "diverged"
+   ],
+   "iterations": [
+    2,
+    2,
+    2
    ],
    "final_accs": [
     10.0,
@@ -275,6 +315,11 @@
     "diverged",
     "diverged"
    ],
+   "iterations": [
+    2,
+    2,
+    2
+   ],
    "final_accs": [
     10.0,
     10.0,
@@ -307,6 +352,11 @@
     "diverged",
     "diverged"
    ],
+   "iterations": [
+    2,
+    2,
+    2
+   ],
    "final_accs": [
     10.0,
     10.0,
@@ -335,6 +385,11 @@
     false
    ],
    "stop_reasons": [
+    null,
+    null,
+    null
+   ],
+   "iterations": [
     null,
     null,
     null
@@ -371,6 +426,11 @@
     null,
     null
    ],
+   "iterations": [
+    null,
+    null,
+    null
+   ],
    "final_accs": [
     96.82492065429688,
     96.7147445678711,
@@ -399,6 +459,11 @@
     false
    ],
    "stop_reasons": [
+    null,
+    null,
+    null
+   ],
+   "iterations": [
     null,
     null,
     null
@@ -435,6 +500,11 @@
     null,
     null
    ],
+   "iterations": [
+    null,
+    null,
+    null
+   ],
    "final_accs": [
     96.74478912353516,
     96.70472717285156,
@@ -463,6 +533,11 @@
     false
    ],
    "stop_reasons": [
+    null,
+    null,
+    null
+   ],
+   "iterations": [
     null,
     null,
     null
@@ -499,6 +574,11 @@
     null,
     null
    ],
+   "iterations": [
+    null,
+    null,
+    null
+   ],
    "final_accs": [
     9.344951629638672,
     7.361778736114502,
@@ -531,6 +611,11 @@
     null,
     null
    ],
+   "iterations": [
+    null,
+    null,
+    null
+   ],
    "final_accs": [
     10.0,
     10.0,
@@ -559,6 +644,11 @@
     true
    ],
    "stop_reasons": [
+    null,
+    null,
+    null
+   ],
+   "iterations": [
     null,
     null,
     null
