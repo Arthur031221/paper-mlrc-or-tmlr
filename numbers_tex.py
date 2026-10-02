@@ -1,4 +1,4 @@
-"""Write paper/numbers.tex: every number the paper quotes, as LaTeX macros.
+"""Generate paper/numbers.tex with the paper's experimental summary statistics.
 
 Reads only files in results/. A macro whose source file is missing is
 defined as \\pending so the draft compiles and the gap is visible.
