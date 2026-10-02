@@ -1,7 +1,8 @@
-"""Generate paper/numbers.tex with the paper's experimental summary statistics.
+"""Generate paper/numbers.tex from saved experimental summaries.
 
-Reads only files in results/. A macro whose source file is missing is
-defined as \\pending so the draft compiles and the gap is visible.
+Reads summaries from results/ and fixed thresholds from criteria.py. A macro
+whose source file is missing is defined as \\pending so the draft compiles
+and the gap is visible. This script does not collect or overwrite results.
 """
 import json
 import math
@@ -285,8 +286,8 @@ def main():
     # Which side of the CIFAR-10 band the muPC seeds fell on.
     cf = c2["datasets"].get("CIFAR10") if c2 else None
     if cf:
-        from c2_summary import CRIT
-        lo, hi = CRIT["CIFAR10"]
+        from criteria import C2_CRITERIA
+        lo, hi = C2_CRITERIA["CIFAR10"]
         runs = cf["mupc"]["runs"]
         macros["ctwoCfAbove"] = str(sum(r > hi for r in runs))
         macros["ctwoCfBelow"] = str(sum(r < lo for r in runs))

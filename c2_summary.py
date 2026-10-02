@@ -19,11 +19,11 @@ import json
 from pathlib import Path
 
 import numpy as np
+from criteria import C2_CRITERIA
 
 HERE = Path(__file__).resolve().parent
 L = HERE / "runs" / "long"
 CHANCE = 10.0
-CRIT = {"MNIST": (97.0, 1.0), "Fashion-MNIST": (87.0, 1.5), "CIFAR10": (35.0, 41.0)}
 
 
 def last(accs):
@@ -36,7 +36,7 @@ def stats(v):
 
 
 out = {"datasets": {}}
-for ds in CRIT:
+for ds in C2_CRITERIA:
     recs = [json.loads(f.read_text()) for f in sorted((L / f"mupc_{ds}").glob("seed*.json"))]
     bp_files = sorted((L / "bp" / ds).rglob("test_accs.npy")) if (L / "bp" / ds).exists() else []
     if not recs or not bp_files:
@@ -53,10 +53,10 @@ for ds in CRIT:
                              "hidden_min": float(hidden.min()), "hidden_max": float(hidden.max()),
                              "per_layer": [float(x) for x in wc]}}
     if ds == "CIFAR10":
-        lo, hi = CRIT[ds]
+        lo, hi = C2_CRITERIA[ds]
         row["pass"] = lo <= mu["mean"] <= hi and mu["mean"] < bp["mean"]
     else:
-        floor, gap = CRIT[ds]
+        floor, gap = C2_CRITERIA[ds]
         row["pass"] = mu["mean"] >= floor and row["gap"] <= gap
     out["datasets"][ds] = row
 
