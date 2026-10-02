@@ -310,6 +310,28 @@
   },
   {
    "source": "official",
+   "method": "mupc",
+   "n_hidden": 64,
+   "seeds": [
+    0,
+    1,
+    2
+   ],
+   "stopped": [
+    false,
+    false,
+    false
+   ],
+   "final_accs": [
+    96.65464782714844,
+    96.53445434570312,
+    96.59455108642578
+   ],
+   "mean": 96.59455108642578,
+   "sd": 0.06009674072265625
+  },
+  {
+   "source": "official",
    "method": "sp",
    "n_hidden": 8,
    "seeds": [

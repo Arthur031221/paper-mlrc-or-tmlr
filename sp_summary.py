@@ -4,9 +4,9 @@ Reads runs/sp_grid/depth_N512_H<H>/plr*_alr*/seed*.json, writes
 results/sp_grid.json. Cells are scored as in c3_summary.py: seed mean of the
 minimum training loss, a cell with a diverged or non-finite run is
 ineligible, the best cell is the eligible cell with the lowest score.
-Accuracy of a cell is the seed mean of test accuracy after 900 iterations;
-a run the training code stopped counts at its last test accuracy, or at 10%
-if it had none (as drawn in Fig. 1).
+Accuracy of a cell is the seed mean of test accuracy at update 900 when the
+run reaches it. A run stopped by the training code uses its last test accuracy,
+or 10% when it has no test point (as drawn in Fig. 1).
 C1 criterion for the standard parameterisation (fixed before any run): it
 stays at or below 15% at H = 64 and 128. Here it is applied to the best cell
 at each of those depths; a depth with no eligible cell counts as at or below

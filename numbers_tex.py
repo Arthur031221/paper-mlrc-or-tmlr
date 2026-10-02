@@ -214,18 +214,18 @@ def main():
             "profThresh": f"{prof['threshold']:g}",
             "profNAbove": str(n_above.pop()),
             "profFirstAbove": str(first.pop()),
-            "profInMax": sci(max(x["input"] for x in a)),
-            "profBelowMax": f"{max(x['hidden_below_top_max'] for x in a):.3f}",
-            "profBelowMedMax": f"{max(x['hidden_below_top_median'] for x in a):.4f}",
-            "profReadoutMin": f"{min(x['readout'] for x in a):.2f}",
+            "profInMax": f"{max(x['input'] for x in a):.9g}",
+            "profBelowMax": f"{max(x['hidden_below_top_max'] for x in a):.9g}",
+            "profBelowMedMax": f"{max(x['hidden_below_top_median'] for x in a):.9g}",
+            "profReadoutMin": f"{min(x['readout'] for x in a):.9g}",
             "profLastIt": str(s[0]["last_iteration"]),
-            "profBelowMaxLast": f"{max(x['hidden_below_top_max'] for x in b):.3f}",
+            "profBelowMaxLast": f"{max(x['hidden_below_top_max'] for x in b):.9g}",
             "profNAboveLast": str(n_last.pop()),
         })
     else:
         for k in prof_keys:
             macros[k] = "\\pending"
-    macros["profHidMedMax"] = (f"{max(x['it900']['hidden_median'] for x in prof['seeds'].values()):.4f}"
+    macros["profHidMedMax"] = (f"{max(x['it900']['hidden_median'] for x in prof['seeds'].values()):.9g}"
                                if prof and prof["n_seeds"] else "\\pending")
 
     # Same profile for the BP baseline with Depth-muP (bp_profile.py).
@@ -240,10 +240,10 @@ def main():
             "bpProfAcc": f"{sum(x['test_acc'] for x in a) / len(a):.2f}",
             "bpProfNAboveMin": str(min(x["n_hidden_at_or_above_thresh"] for x in a)),
             "bpProfNAboveMax": str(max(x["n_hidden_at_or_above_thresh"] for x in a)),
-            "bpProfHidMedMin": f"{min(x['hidden_median'] for x in a):.4f}",
+            "bpProfHidMedMin": f"{min(x['hidden_median'] for x in a):.9g}",
             "bpProfNAboveLastMin": str(min(x["n_hidden_at_or_above_thresh"] for x in b)),
             "bpProfNAboveLastMax": str(max(x["n_hidden_at_or_above_thresh"] for x in b)),
-            "bpProfInMin": sci(min(x["input"] for x in a)),
+            "bpProfInMin": f"{min(x['input'] for x in a):.9g}",
         })
     else:
         for k in bpp_keys:
