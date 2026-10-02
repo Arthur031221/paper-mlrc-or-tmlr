@@ -55,7 +55,7 @@ def rule(full, frozen):
     t = stats.t.ppf(0.975, len(d) - 1)
     lo, hi = m - t * se, m + t * se
     if hi < MARGIN:
-        verdict = "lower-block freeze meets the one-point margin"
+        verdict = "met the one-point margin"
     elif m >= MARGIN and lo > 0:
         verdict = "mean loss meets one point and interval excludes zero"
     else:

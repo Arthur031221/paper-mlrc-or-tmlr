@@ -52,5 +52,6 @@ in `results/env.json`.
 `run_bpn.py` wraps the official BP script, which fixes the input size to
 that of CIFAR-10; the wrapper takes it from the dataset.
 
-Seeds vary by experiment. The depth, transfer and C2 grids use three seeds; the
-partial-freeze MNIST tests use five seeds. Each script records its seed list.
+Seeds vary by experiment. C1, C3, shallow controls and C2 on Fashion-MNIST and
+CIFAR-10 use three seeds. C2 on MNIST and the partial-freeze MNIST tests use
+five seeds. Each script records its seed list.

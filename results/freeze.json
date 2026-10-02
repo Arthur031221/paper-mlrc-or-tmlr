@@ -113,7 +113,7 @@
     -0.0910943287476807,
     0.07105648695080569
    ],
-   "verdict": "top six suffice"
+   "verdict": "met the one-point margin"
   },
   "bp_rule": {
    "complete": true,
@@ -136,7 +136,7 @@
     0.529087439355469,
     1.5342182247070308
    ],
-   "verdict": "lower layers contribute"
+   "verdict": "mean loss meets one point and interval excludes zero"
   }
  },
  "tuned": {
@@ -217,7 +217,7 @@
     -1.255610207965921,
     -0.547270651409079
    ],
-   "verdict": "top six suffice"
+   "verdict": "met the one-point margin"
   }
  },
  "cifar": {
