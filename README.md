@@ -52,4 +52,5 @@ in `results/env.json`.
 `run_bpn.py` wraps the official BP script, which fixes the input size to
 that of CIFAR-10; the wrapper takes it from the dataset.
 
-Seeds are 0, 1 and 2 throughout.
+Seeds vary by experiment. The depth, transfer and C2 grids use three seeds; the
+partial-freeze MNIST tests use five seeds. Each script records its seed list.

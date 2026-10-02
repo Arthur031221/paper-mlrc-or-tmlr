@@ -9,8 +9,8 @@ activity lr 0.5), T = H, seeds 0 to 4. Arms, all in runs/freeze/:
   bp_full, bp_frz1-121   BP Depth-muP (lr 5e-3), same arms
 Decision rule, fixed before the runs: d = full - frz1-121, paired by seed,
 at the last test point (iteration 900); 95% t-interval over the 5 seeds.
-  upper end < 1 pp               -> "top six suffice"
-  mean >= 1 pp and lower end > 0 -> "lower layers contribute"
+  upper end < 1 pp               -> lower-block freeze meets the 1 pp margin
+  mean >= 1 pp and lower end > 0 -> mean loss meets 1 pp and interval excludes zero
   otherwise                      -> "inconclusive at 1 pp"
 The same summary is written for BP and for the tuned-cell repeat
 (runs/freeze_tuned/, same rule) and for CIFAR-10 (runs/freeze_cifar/, the C2
@@ -55,9 +55,9 @@ def rule(full, frozen):
     t = stats.t.ppf(0.975, len(d) - 1)
     lo, hi = m - t * se, m + t * se
     if hi < MARGIN:
-        verdict = "top six suffice"
+        verdict = "lower-block freeze meets the one-point margin"
     elif m >= MARGIN and lo > 0:
-        verdict = "lower layers contribute"
+        verdict = "mean loss meets one point and interval excludes zero"
     else:
         verdict = "inconclusive at 1 pp"
     return {"complete": True, "seeds": seeds, "diff": d.tolist(), "mean": float(m),
