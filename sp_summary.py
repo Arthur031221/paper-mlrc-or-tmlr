@@ -5,13 +5,10 @@ results/sp_grid.json. Cells are scored as in c3_summary.py: seed mean of the
 minimum training loss, a cell with a diverged or non-finite run is
 ineligible, the best cell is the eligible cell with the lowest score.
 Accuracy of a cell is the seed mean of test accuracy at update 900 when the
-run reaches it. A run stopped by the training code uses its last test accuracy,
-or 10% when it has no test point (as drawn in Fig. 1).
-C1 criterion for the standard parameterisation (fixed before any run): it
-stays at or below 15% at H = 64 and 128. Here it is applied to the best cell
-at each of those depths; a depth with no eligible cell counts as at or below
-15%. spMaxDeep, the highest cell accuracy over all eligible cells at
-H >= 64, is descriptive.
+run reaches it. A run stopped before a test point has no measured accuracy.
+C1's numerical accuracy condition cannot be evaluated at a depth with no
+eligible cell. spMaxDeep, the highest cell accuracy over all eligible cells
+at H >= 64, is descriptive.
 Usage: python sp_summary.py
 """
 import json
@@ -32,7 +29,7 @@ def acc900(r):
     a = r["test_acc"]
     if len(a) > IT900:
         return a[IT900]
-    return a[-1] if a else 10.0
+    return a[-1] if a else None
 
 
 def cell(d):
@@ -41,8 +38,10 @@ def cell(d):
         return None
     mins = [min(r["train_loss"]) if r["train_loss"] else math.inf for r in recs]
     eligible = all(r["stop"] != "diverged" and math.isfinite(m) for r, m in zip(recs, mins))
+    accs = [acc900(r) for r in recs]
+    acc = float(np.mean(accs)) if all(x is not None for x in accs) else None
     return {"score": float(np.mean(mins)) if eligible else math.inf, "eligible": eligible,
-            "acc": float(np.mean([acc900(r) for r in recs]))}
+            "acc": acc}
 
 
 out, complete = {"rows": []}, True
@@ -60,13 +59,16 @@ for H, name in DEPTHS.items():
     if done:
         out[f"sp{name}Acc"] = f"{row['best_acc']:.2f}" if best else "no eligible cell"
     if H >= 64:
-        deep_accs += [c["acc"] for c in elig.values()]
+        deep_accs += [c["acc"] for c in elig.values() if c["acc"] is not None]
 out["complete"] = complete
 if complete:
     deep = [r for r in out["rows"] if r["H"] >= 64]
     out["spEligibleDeep"] = sum(r["eligible"] for r in deep)
     out["spMaxDeep"] = f"{max(deep_accs):.2f}" if deep_accs else "none"
-    held = all(r["best_acc"] is None or r["best_acc"] <= 15 for r in deep)
-    out["spVerdict"] = "held" if held else "did not hold"
+    if not deep_accs:
+        out["spVerdict"] = "not evaluable"
+    else:
+        held = all(r["best_acc"] is not None and r["best_acc"] <= 15 for r in deep)
+        out["spVerdict"] = "held" if held else "did not hold"
 (HERE / "results" / "sp_grid.json").write_text(json.dumps(out, indent=1))
 print({k: v for k, v in out.items() if k != "rows"})

@@ -14,7 +14,17 @@
     false,
     false
    ],
+   "stop_reasons": [
+    null,
+    null,
+    null
+   ],
    "final_accs": [
+    96.88501739501953,
+    96.73477935791016,
+    96.53445434570312
+   ],
+   "measured_accs": [
     96.88501739501953,
     96.73477935791016,
     96.53445434570312
@@ -36,7 +46,17 @@
     false,
     false
    ],
+   "stop_reasons": [
+    null,
+    null,
+    null
+   ],
    "final_accs": [
+    96.88501739501953,
+    96.72476196289062,
+    96.75480651855469
+   ],
+   "measured_accs": [
     96.88501739501953,
     96.72476196289062,
     96.75480651855469
@@ -58,7 +78,17 @@
     false,
     false
    ],
+   "stop_reasons": [
+    null,
+    null,
+    null
+   ],
    "final_accs": [
+    96.82492065429688,
+    96.75480651855469,
+    96.55448913574219
+   ],
+   "measured_accs": [
     96.82492065429688,
     96.75480651855469,
     96.55448913574219
@@ -80,7 +110,17 @@
     false,
     false
    ],
+   "stop_reasons": [
+    null,
+    null,
+    null
+   ],
    "final_accs": [
+    96.72476196289062,
+    96.62460327148438,
+    96.54447174072266
+   ],
+   "measured_accs": [
     96.72476196289062,
     96.62460327148438,
     96.54447174072266
@@ -102,7 +142,17 @@
     false,
     false
    ],
+   "stop_reasons": [
+    null,
+    null,
+    null
+   ],
    "final_accs": [
+    96.58453369140625,
+    96.6446304321289,
+    96.36418151855469
+   ],
+   "measured_accs": [
     96.58453369140625,
     96.6446304321289,
     96.36418151855469
@@ -124,7 +174,17 @@
     true,
     true
    ],
+   "stop_reasons": [
+    "no_learning",
+    "no_learning",
+    "no_learning"
+   ],
    "final_accs": [
+    11.348156929016113,
+    10.09615421295166,
+    11.358173370361328
+   ],
+   "measured_accs": [
     11.348156929016113,
     10.09615421295166,
     11.358173370361328
@@ -146,13 +206,23 @@
     true,
     true
    ],
+   "stop_reasons": [
+    "diverged",
+    "diverged",
+    "diverged"
+   ],
    "final_accs": [
     10.0,
     10.0,
     10.0
    ],
-   "mean": 10.0,
-   "sd": 0.0
+   "measured_accs": [
+    null,
+    null,
+    null
+   ],
+   "mean": null,
+   "sd": null
   },
   {
    "source": "lean",
@@ -168,13 +238,23 @@
     true,
     true
    ],
+   "stop_reasons": [
+    "diverged",
+    "diverged",
+    "diverged"
+   ],
    "final_accs": [
     10.0,
     10.0,
     10.0
    ],
-   "mean": 10.0,
-   "sd": 0.0
+   "measured_accs": [
+    null,
+    null,
+    null
+   ],
+   "mean": null,
+   "sd": null
   },
   {
    "source": "lean",
@@ -190,13 +270,23 @@
     true,
     true
    ],
+   "stop_reasons": [
+    "diverged",
+    "diverged",
+    "diverged"
+   ],
    "final_accs": [
     10.0,
     10.0,
     10.0
    ],
-   "mean": 10.0,
-   "sd": 0.0
+   "measured_accs": [
+    null,
+    null,
+    null
+   ],
+   "mean": null,
+   "sd": null
   },
   {
    "source": "lean",
@@ -212,13 +302,23 @@
     true,
     true
    ],
+   "stop_reasons": [
+    "diverged",
+    "diverged",
+    "diverged"
+   ],
    "final_accs": [
     10.0,
     10.0,
     10.0
    ],
-   "mean": 10.0,
-   "sd": 0.0
+   "measured_accs": [
+    null,
+    null,
+    null
+   ],
+   "mean": null,
+   "sd": null
   },
   {
    "source": "official",
@@ -234,7 +334,17 @@
     false,
     false
    ],
+   "stop_reasons": [
+    null,
+    null,
+    null
+   ],
    "final_accs": [
+    95.87339782714844,
+    97.09535217285156,
+    96.85497283935547
+   ],
+   "measured_accs": [
     95.87339782714844,
     97.09535217285156,
     96.85497283935547
@@ -256,7 +366,17 @@
     false,
     false
    ],
+   "stop_reasons": [
+    null,
+    null,
+    null
+   ],
    "final_accs": [
+    96.82492065429688,
+    96.7147445678711,
+    96.60456848144531
+   ],
+   "measured_accs": [
     96.82492065429688,
     96.7147445678711,
     96.60456848144531
@@ -278,7 +398,17 @@
     false,
     false
    ],
+   "stop_reasons": [
+    null,
+    null,
+    null
+   ],
    "final_accs": [
+    96.79487609863281,
+    96.62460327148438,
+    96.77484130859375
+   ],
+   "measured_accs": [
     96.79487609863281,
     96.62460327148438,
     96.77484130859375
@@ -300,7 +430,17 @@
     false,
     false
    ],
+   "stop_reasons": [
+    null,
+    null,
+    null
+   ],
    "final_accs": [
+    96.74478912353516,
+    96.70472717285156,
+    96.5244369506836
+   ],
+   "measured_accs": [
     96.74478912353516,
     96.70472717285156,
     96.5244369506836
@@ -322,7 +462,17 @@
     false,
     false
    ],
+   "stop_reasons": [
+    null,
+    null,
+    null
+   ],
    "final_accs": [
+    96.65464782714844,
+    96.53445434570312,
+    96.59455108642578
+   ],
+   "measured_accs": [
     96.65464782714844,
     96.53445434570312,
     96.59455108642578
@@ -344,7 +494,17 @@
     true,
     true
    ],
+   "stop_reasons": [
+    null,
+    null,
+    null
+   ],
    "final_accs": [
+    9.344951629638672,
+    7.361778736114502,
+    10.476762771606445
+   ],
+   "measured_accs": [
     9.344951629638672,
     7.361778736114502,
     10.476762771606445
@@ -366,13 +526,23 @@
     true,
     true
    ],
+   "stop_reasons": [
+    null,
+    null,
+    null
+   ],
    "final_accs": [
     10.0,
     10.0,
     10.0
    ],
-   "mean": 10.0,
-   "sd": 0.0
+   "measured_accs": [
+    null,
+    null,
+    null
+   ],
+   "mean": null,
+   "sd": null
   },
   {
    "source": "official",
@@ -388,13 +558,23 @@
     true,
     true
    ],
+   "stop_reasons": [
+    null,
+    null,
+    null
+   ],
    "final_accs": [
     10.0,
     10.0,
     10.0
    ],
-   "mean": 10.0,
-   "sd": 0.0
+   "measured_accs": [
+    null,
+    null,
+    null
+   ],
+   "mean": null,
+   "sd": null
   }
  ],
  "complete": true,
@@ -402,7 +582,8 @@
  "mupc_max_mean": 96.78819529215495,
  "mupc_spread": 0.257080078125,
  "mupc_min_run": 96.36418151855469,
- "sp_deep_max": 10.0,
+ "sp_deep_max": null,
+ "sp_accuracy_evaluable": false,
  "pass_mupc": true,
  "pass_sp": true,
  "pass": true

@@ -87,18 +87,17 @@ def main():
         macros["cOneMaxMean"] = f"{c1['mupc_max_mean']:.2f}"
         macros["cOneSpread"] = f"{c1['mupc_spread']:.2f}"
         macros["cOneMinRun"] = f"{c1['mupc_min_run']:.2f}"
-        macros["cOneSpDeepMax"] = f"{c1['sp_deep_max']:.0f}"
-        macros["cOneVerdict"] = "passes" if c1["pass"] else "fails"
+        macros["cOneSpDeepMax"] = f"{c1['sp_deep_max']:.0f}" if c1["sp_deep_max"] is not None else "\\pending"
+        macros["cOneVerdict"] = "meets" if c1["pass"] else "does not meet"
         macros["cOneAgreeConfigs"] = str(lvo["configs_compared"])
         macros["cOneAgreeRuns"] = str(sum(len(r["seeds"]) for r in lvo["rows"]))
         tested = [r for r in lvo["rows"] if r["lean_accs"]]
         macros["cOneAgreeTested"] = str(len(tested))
         macros["cOneAgreeNoTest"] = str(len(lvo["rows"]) - len(tested))
         sp = [r for r in c1["rows"] if r["method"] == "sp"]
-        # c1_summary.py records a run with no test point as 10.0 with stopped=True.
         spd = [r for r in sp if r["source"] == "lean" and r["n_hidden"] >= 64]
         macros["cOneSpDeepRuns"] = str(sum(len(r["seeds"]) for r in spd))
-        macros["cOneSpDeepNoTest"] = str(sum(1 for r in spd for a, st in zip(r["final_accs"], r["stopped"]) if st and a == 10.0))
+        macros["cOneSpDeepNoTest"] = str(sum(1 for r in spd for a in r["measured_accs"] if a is None))
         macros["cOneSpRuns"] = str(sum(len(r["seeds"]) for r in sp))
         macros["cOneSpStopped"] = str(sum(sum(r["stopped"]) for r in sp))
         bp = [r for r in c1["rows"] if r["method"] == "bp" and r["n_hidden"] == 128]

@@ -3,8 +3,9 @@
 Reads results/c1.json (c1_summary.py), which holds the final test accuracy
 of every run of the official code and of lean_mupc.py.
 Panel a: accuracy after one epoch against H for all methods, one point per
-seed, a line through the reimplementation's seed means; runs the training
-script stopped are drawn at their last accuracy (chance if none) with an x.
+seed, a line through measured reimplementation means; runs stopped by the
+training script are marked with an x, with chance used only as a display
+placeholder when no test point exists.
 Panel b: the muPC and BP points on a narrow scale, with seed mean and s.d.
 Usage: python fig1_plot.py [out.pdf]   (default ../paper/fig1.pdf)
 """
@@ -26,7 +27,8 @@ COLOR = {r"$\mu$PC": "#0072B2", "SP PC": "#D55E00", r"BP Depth-$\mu$P": "#000000
 fig, (ax_a, ax_b) = plt.subplots(1, 2, figsize=(183 / 25.4, 2.4))
 
 # Panel a reads results/c1.json, which also covers runs stopped before
-# their first test point; those are drawn at chance with an x.
+# their first test point; those are marked at chance with an x only as a
+# display placeholder, not as an observed accuracy.
 c1 = json.loads((HERE / "results" / "c1.json").read_text())
 METHOD = {"mupc": r"$\mu$PC", "sp": "SP PC", "bp": r"BP Depth-$\mu$P"}
 for src in ("lean", "official"):
@@ -45,7 +47,9 @@ for src in ("lean", "official"):
                 else:
                     ax_a.scatter(r["n_hidden"] * off, acc, s=10, facecolors="none", edgecolors=COLOR[lab], linewidths=0.6)
         if src == "lean":
-            ax_a.plot([r["n_hidden"] for r in rs], [r["mean"] for r in rs], color=COLOR[lab], lw=0.8, label=lab)
+            ax_a.plot([r["n_hidden"] for r in rs],
+                      [np.nan if r["mean"] is None else r["mean"] for r in rs],
+                      color=COLOR[lab], lw=0.8, label=lab)
 ax_a.scatter([], [], s=6, color="grey", marker="s", label="reimplementation")
 ax_a.scatter([], [], s=10, facecolors="none", edgecolors="grey", label="official code")
 ax_a.scatter([], [], s=10, color="grey", marker="x", label="stopped by the script")
