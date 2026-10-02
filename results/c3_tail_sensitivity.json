@@ -1,0 +1,375 @@
+{
+ "analysis": "post hoc C3 score sensitivity",
+ "alternative_score": "mean across seeds of each seed's final 100 logged minibatch losses",
+ "window_updates": 100,
+ "reference_index": [
+  1,
+  6
+ ],
+ "reference_lr": [
+  0.1,
+  1
+ ],
+ "rows": [
+  {
+   "axis": "width",
+   "value": 64,
+   "eligible_cells": 44,
+   "primary_best_index": [
+    1,
+    4
+   ],
+   "primary_best_lr": [
+    0.1,
+    10.0
+   ],
+   "tail_best_index": [
+    1,
+    4
+   ],
+   "tail_best_lr": [
+    0.1,
+    10.0
+   ],
+   "tail_best_is_reference": false,
+   "reference_tail_score": 0.009865637736705441,
+   "primary_best_tail_score": 0.007818996862818797,
+   "primary_best_to_reference_tail_ratio": 0.7925485479492068,
+   "tail_best_score": 0.007818996862818797,
+   "tail_best_seed_means": [
+    0.008219305179081857,
+    0.008104252675548197,
+    0.007133432733826339
+   ],
+   "tail_best_endpoint_accuracy": [
+    92.43790435791016,
+    92.2175521850586,
+    92.578125
+   ]
+  },
+  {
+   "axis": "width",
+   "value": 128,
+   "eligible_cells": 44,
+   "primary_best_index": [
+    2,
+    4
+   ],
+   "primary_best_lr": [
+    0.05,
+    10.0
+   ],
+   "tail_best_index": [
+    2,
+    5
+   ],
+   "tail_best_lr": [
+    0.05,
+    5
+   ],
+   "tail_best_is_reference": false,
+   "reference_tail_score": 0.006421108753420412,
+   "primary_best_tail_score": 0.007217220580205321,
+   "primary_best_to_reference_tail_ratio": 1.1239835451098432,
+   "tail_best_score": 0.0059688923810608694,
+   "tail_best_seed_means": [
+    0.006222758982330561,
+    0.0059746475913561884,
+    0.0057092705694958565
+   ],
+   "tail_best_endpoint_accuracy": [
+    94.3008804321289,
+    94.25080108642578,
+    94.53125
+   ]
+  },
+  {
+   "axis": "width",
+   "value": 256,
+   "eligible_cells": 44,
+   "primary_best_index": [
+    2,
+    5
+   ],
+   "primary_best_lr": [
+    0.05,
+    5
+   ],
+   "tail_best_index": [
+    2,
+    5
+   ],
+   "tail_best_lr": [
+    0.05,
+    5
+   ],
+   "tail_best_is_reference": false,
+   "reference_tail_score": 0.004961338563589379,
+   "primary_best_tail_score": 0.004521017733883734,
+   "primary_best_to_reference_tail_ratio": 0.911249590395402,
+   "tail_best_score": 0.004521017733883734,
+   "tail_best_seed_means": [
+    0.004785277955234051,
+    0.004417674272553995,
+    0.004360100973863155
+   ],
+   "tail_best_endpoint_accuracy": [
+    96.01362609863281,
+    95.95352935791016,
+    95.8934326171875
+   ]
+  },
+  {
+   "axis": "width",
+   "value": 512,
+   "eligible_cells": 43,
+   "primary_best_index": [
+    1,
+    6
+   ],
+   "primary_best_lr": [
+    0.1,
+    1
+   ],
+   "tail_best_index": [
+    1,
+    6
+   ],
+   "tail_best_lr": [
+    0.1,
+    1
+   ],
+   "tail_best_is_reference": true,
+   "reference_tail_score": 0.0042661777546163645,
+   "primary_best_tail_score": 0.0042661777546163645,
+   "primary_best_to_reference_tail_ratio": 1.0,
+   "tail_best_score": 0.0042661777546163645,
+   "tail_best_seed_means": [
+    0.004466625833883881,
+    0.004200592326233163,
+    0.00413131510373205
+   ],
+   "tail_best_endpoint_accuracy": [
+    97.02523803710938,
+    97.0352554321289,
+    96.92507934570312
+   ]
+  },
+  {
+   "axis": "width",
+   "value": 1024,
+   "eligible_cells": 42,
+   "primary_best_index": [
+    2,
+    5
+   ],
+   "primary_best_lr": [
+    0.05,
+    5
+   ],
+   "tail_best_index": [
+    1,
+    6
+   ],
+   "tail_best_lr": [
+    0.1,
+    1
+   ],
+   "tail_best_is_reference": true,
+   "reference_tail_score": 0.0039202644086132445,
+   "primary_best_tail_score": 0.31527749823367535,
+   "primary_best_to_reference_tail_ratio": 80.4225086300242,
+   "tail_best_score": 0.0039202644086132445,
+   "tail_best_seed_means": [
+    0.00413721808930859,
+    0.0038256914052180947,
+    0.0037978837313130498
+   ],
+   "tail_best_endpoint_accuracy": [
+    97.31570434570312,
+    97.13541412353516,
+    97.0653076171875
+   ]
+  },
+  {
+   "axis": "depth",
+   "value": 8,
+   "eligible_cells": 43,
+   "primary_best_index": [
+    1,
+    6
+   ],
+   "primary_best_lr": [
+    0.1,
+    1
+   ],
+   "tail_best_index": [
+    1,
+    6
+   ],
+   "tail_best_lr": [
+    0.1,
+    1
+   ],
+   "tail_best_is_reference": true,
+   "reference_tail_score": 0.0042661777546163645,
+   "primary_best_tail_score": 0.0042661777546163645,
+   "primary_best_to_reference_tail_ratio": 1.0,
+   "tail_best_score": 0.0042661777546163645,
+   "tail_best_seed_means": [
+    0.004466625833883881,
+    0.004200592326233163,
+    0.00413131510373205
+   ],
+   "tail_best_endpoint_accuracy": [
+    97.02523803710938,
+    97.0352554321289,
+    96.93509674072266
+   ]
+  },
+  {
+   "axis": "depth",
+   "value": 16,
+   "eligible_cells": 40,
+   "primary_best_index": [
+    2,
+    5
+   ],
+   "primary_best_lr": [
+    0.05,
+    5
+   ],
+   "tail_best_index": [
+    1,
+    6
+   ],
+   "tail_best_lr": [
+    0.1,
+    1
+   ],
+   "tail_best_is_reference": true,
+   "reference_tail_score": 0.00421396497093762,
+   "primary_best_tail_score": 0.004922106786398217,
+   "primary_best_to_reference_tail_ratio": 1.1680464409040956,
+   "tail_best_score": 0.00421396497093762,
+   "tail_best_seed_means": [
+    0.004398254082771018,
+    0.004098588937195018,
+    0.004145051892846823
+   ],
+   "tail_best_endpoint_accuracy": [
+    96.85497283935547,
+    96.82492065429688,
+    96.65464782714844
+   ]
+  },
+  {
+   "axis": "depth",
+   "value": 32,
+   "eligible_cells": 35,
+   "primary_best_index": [
+    2,
+    5
+   ],
+   "primary_best_lr": [
+    0.05,
+    5
+   ],
+   "tail_best_index": [
+    2,
+    5
+   ],
+   "tail_best_lr": [
+    0.05,
+    5
+   ],
+   "tail_best_is_reference": false,
+   "reference_tail_score": 0.004111030695106214,
+   "primary_best_tail_score": 0.004049102763722961,
+   "primary_best_to_reference_tail_ratio": 0.9849361544643849,
+   "tail_best_score": 0.004049102763722961,
+   "tail_best_seed_means": [
+    0.004236712850397453,
+    0.0040077265130821615,
+    0.003902868927689269
+   ],
+   "tail_best_endpoint_accuracy": [
+    96.37419891357422,
+    96.45433044433594,
+    96.26402282714844
+   ]
+  },
+  {
+   "axis": "depth",
+   "value": 64,
+   "eligible_cells": 31,
+   "primary_best_index": [
+    2,
+    4
+   ],
+   "primary_best_lr": [
+    0.05,
+    10.0
+   ],
+   "tail_best_index": [
+    1,
+    6
+   ],
+   "tail_best_lr": [
+    0.1,
+    1
+   ],
+   "tail_best_is_reference": true,
+   "reference_tail_score": 0.004105914708925411,
+   "primary_best_tail_score": 0.004197626073340265,
+   "primary_best_to_reference_tail_ratio": 1.022336402705953,
+   "tail_best_score": 0.004105914708925411,
+   "tail_best_seed_means": [
+    0.004314123024232686,
+    0.004057007583323866,
+    0.003946613519219682
+   ],
+   "tail_best_endpoint_accuracy": [
+    96.69470977783203,
+    96.72476196289062,
+    96.59455108642578
+   ]
+  },
+  {
+   "axis": "depth",
+   "value": 128,
+   "eligible_cells": 26,
+   "primary_best_index": [
+    1,
+    5
+   ],
+   "primary_best_lr": [
+    0.1,
+    5
+   ],
+   "tail_best_index": [
+    0,
+    7
+   ],
+   "tail_best_lr": [
+    0.5,
+    0.5
+   ],
+   "tail_best_is_reference": false,
+   "reference_tail_score": 0.004211822164555391,
+   "primary_best_tail_score": 0.004349910254046942,
+   "primary_best_to_reference_tail_ratio": 1.0327858309530806,
+   "tail_best_score": 0.004121762723661959,
+   "tail_best_seed_means": [
+    0.004268491494003684,
+    0.00415635114419274,
+    0.003940445532789454
+   ],
+   "tail_best_endpoint_accuracy": [
+    95.97355651855469,
+    96.3241195678711,
+    95.82331848144531
+   ]
+  }
+ ]
+}
