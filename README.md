@@ -15,12 +15,12 @@ checks out commit 84f277b and builds a Python 3.11 environment in
 CPU build and is used only to load data. It needs `git` and `uv`.
 
 The job scripts source `env.sh`, which points them at that interpreter and
-checkout. Datasets live in `../vendor/upstream_jpc/datasets`; the official
+checkout. Datasets live in `../vendor/upstream_jpc/datasets`. The official
 loaders download them on first use, and `lean_mupc.py` reads MNIST from
 there without downloading (set `MUPC_DATA` to use another directory).
 
-`lean_mupc.py` sets JAX's default matmul precision to `highest`. With the
-default precision on our GPU the muPC runs stayed at chance; see the report.
+`lean_mupc.py` sets JAX's default matmul precision to `highest`. At the
+default precision, muPC stayed at chance on our GPU. The report has the results.
 
 ## Order of the runs
 
@@ -50,7 +50,7 @@ about 15 seconds for the lean code.
 in `results/env.json`.
 
 `run_bpn.py` wraps the official BP script, which fixes the input size to
-that of CIFAR-10; the wrapper takes it from the dataset.
+that of CIFAR-10. The wrapper takes the size from the dataset.
 
 Seeds vary by experiment. C1, C3, shallow controls and C2 on Fashion-MNIST and
 CIFAR-10 use three seeds. C2 on MNIST and the partial-freeze MNIST tests use
