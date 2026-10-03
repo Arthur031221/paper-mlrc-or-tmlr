@@ -185,6 +185,33 @@ def main():
         macros[f"frz{k}"] = f"{x['mean']:.2f}" if ok else "\\pending"
         macros[f"frz{k}Sd"] = f"{x['sd']:.2f}" if ok else "\\pending"
 
+    # Post hoc partial-freeze test at the C3 final-window-loss-selected cell.
+    tail_freeze = load("tail_freeze.json") or {}
+    tail_arms = tail_freeze.get("arms", {})
+    for tag, arm in (("Full", "mupc_full"), ("Low", "mupc_frz1-121"), ("Top", "mupc_frz122-127")):
+        row = tail_arms.get(arm, {})
+        complete = row.get("mean") is not None and len(row.get("seeds", [])) == 5
+        macros[f"frzTail{tag}"] = f"{row['mean']:.2f}" if complete else "\\pending"
+    tail_rules = tail_freeze.get("paired_full_minus_frozen", {})
+    for tag, key in (("Low", "mupc_frz1-121"), ("Top", "mupc_frz122-127")):
+        row = tail_rules.get(key, {})
+        complete = row.get("complete") and row.get("n") == 5 and len(row.get("ci95_pp", [])) == 2
+        macros[f"frzTail{tag}Diff"] = f"{row['mean_pp']:.2f}" if complete else "\\pending"
+        macros[f"frzTail{tag}Lo"] = f"{row['ci95_pp'][0]:.2f}" if complete else "\\pending"
+        macros[f"frzTail{tag}Hi"] = f"{row['ci95_pp'][1]:.2f}" if complete else "\\pending"
+    macros["frzTailN"] = str(len(tail_freeze["seeds"])) if len(tail_freeze.get("seeds", [])) == 5 else "\\pending"
+    macros["frzTailPlr"] = f"{tail_freeze['learning_rates']['parameter']:g}" if tail_freeze.get("learning_rates") else "\\pending"
+    macros["frzTailAlr"] = f"{tail_freeze['learning_rates']['activity']:g}" if tail_freeze.get("learning_rates") else "\\pending"
+
+    contrast = load("freeze_contrast.json") or {}
+    selection_seeds = contrast.get("selection_seed_ids_for_C3_cells", [])
+    train_eval = next((r for r in contrast.get("rows", [])
+                       if r.get("condition") == "C3 minimum mean-training-loss cell"
+                       and r.get("method") == "muPC" and r.get("frozen_hidden_matrices") == "W1-W121"), {})
+    macros["frzCThreeSelectionSeeds"] = ", ".join(map(str, selection_seeds)) if selection_seeds else "\\pending"
+    macros["frzCThreeTrainEvalSeeds"] = ", ".join(map(str, train_eval.get("seeds", []))) if train_eval.get("seeds") else "\\pending"
+    macros["frzCThreeTailEvalSeeds"] = ", ".join(map(str, tail_freeze.get("seeds", []))) if tail_freeze.get("seeds") else "\\pending"
+
     # Standard parameterisation over the 4 x 11 grid (sp_summary.py).
     sp = load("sp_grid.json") or {}
     for k in ("spEightAcc", "spSixteenAcc", "spThirtytwoAcc", "spSixtyfourAcc",
@@ -318,6 +345,16 @@ def main():
     else:
         for k in c3_keys:
             macros[k] = "\\pending"
+
+    # Post hoc sensitivity of the C3 transfer count to final-window loss.
+    tail_c3 = load("c3_tail_sensitivity.json") or {}
+    tail_reference = tail_c3.get("reference_lr")
+    tail_rows = tail_c3.get("rows", [])
+    for axis, tag in (("width", "Width"), ("depth", "Depth")):
+        rows = [r for r in tail_rows if r.get("axis") == axis]
+        complete = tail_reference is not None and len(rows) == 5
+        macros[f"cthreeTail{tag}Match"] = str(sum(r.get("tail_best_lr") == tail_reference for r in rows)) if complete else "\\pending"
+        macros[f"cthreeTail{tag}N"] = str(len(rows)) if complete else "\\pending"
 
     # Per sweep point, filled as soon as that point's grid is complete.
     words = {8: "Eight", 16: "Sixteen", 32: "Thirtytwo", 64: "Sixtyfour", 128: "Onetwentyeight",
