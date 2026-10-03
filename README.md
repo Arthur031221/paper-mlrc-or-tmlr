@@ -49,6 +49,11 @@ about 15 seconds for the lean code.
 `../paper/numbers.tex`. `env_check.py` records the software and hardware
 in `results/env.json`.
 
+`freeze_contrast.py` combines paired H = 128 freezing effects at the published
+learning rates and at the two C3-selected cells. It writes per-seed 95% t
+intervals and records overlap between evaluation and selection seed IDs in
+`results/freeze_contrast.json`.
+
 `run_bpn.py` wraps the official BP script, which fixes the input size to
 that of CIFAR-10. The wrapper takes the size from the dataset.
 

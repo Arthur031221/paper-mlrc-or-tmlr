@@ -1,0 +1,294 @@
+{
+  "analysis": "paired H=128 accuracy contrasts for saved partial-freeze experiments",
+  "dataset": "MNIST",
+  "accuracy_unit": "percent",
+  "difference_unit": "percentage points",
+  "endpoint": "update 900",
+  "interval": "paired two-sided 95% t interval over seeds",
+  "selection_seed_ids_for_C3_cells": [
+    0,
+    1,
+    2
+  ],
+  "minimum_mean_training_loss_cell": [
+    0.1,
+    5
+  ],
+  "minimum_final_100_loss_cell": [
+    0.5,
+    0.5
+  ],
+  "rows": [
+    {
+      "n": 5,
+      "mean_pp": -0.0100189208984375,
+      "sd_pp": 0.06529577080959889,
+      "ci95_pp": [
+        -0.0910943287476807,
+        0.07105648695080569
+      ],
+      "differences_pp": [
+        -0.0701141357421875,
+        0.09014129638671875,
+        0.02002716064453125,
+        -0.040069580078125,
+        -0.050079345703125
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "condition": "published notebook learning rates",
+      "method": "muPC",
+      "frozen_hidden_matrices": "W1-W121",
+      "contrast": "full training minus frozen block",
+      "selection": "fixed published setting",
+      "selection_seeds": [],
+      "evaluation_seed_overlap_with_selection": []
+    },
+    {
+      "n": 5,
+      "mean_pp": 5.8393402099609375,
+      "sd_pp": 0.19537827680554712,
+      "ci95_pp": [
+        5.596746037620401,
+        6.081934382301474
+      ],
+      "differences_pp": [
+        5.588935852050781,
+        5.6891021728515625,
+        5.879402160644531,
+        5.999595642089844,
+        6.039665222167969
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "condition": "published notebook learning rates",
+      "method": "muPC",
+      "frozen_hidden_matrices": "W122-W127",
+      "contrast": "full training minus frozen block",
+      "selection": "fixed published setting",
+      "selection_seeds": [],
+      "evaluation_seed_overlap_with_selection": []
+    },
+    {
+      "n": 5,
+      "mean_pp": 1.03165283203125,
+      "sd_pp": 0.40475152166996076,
+      "ci95_pp": [
+        0.529087439355469,
+        1.5342182247070308
+      ],
+      "differences_pp": [
+        0.8413467407226562,
+        1.6426315307617188,
+        1.2319717407226562,
+        0.8012847900390625,
+        0.6410293579101562
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "condition": "published notebook learning rates",
+      "method": "backpropagation",
+      "frozen_hidden_matrices": "W1-W121",
+      "contrast": "full training minus frozen block",
+      "selection": "fixed published setting",
+      "selection_seeds": [],
+      "evaluation_seed_overlap_with_selection": []
+    },
+    {
+      "n": 5,
+      "mean_pp": -0.9014404296875,
+      "sd_pp": 0.2852380183292547,
+      "ci95_pp": [
+        -1.255610207965921,
+        -0.547270651409079
+      ],
+      "differences_pp": [
+        -1.1117782592773438,
+        -0.5809249877929688,
+        -0.831329345703125,
+        -0.7111358642578125,
+        -1.27203369140625
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "condition": "C3 minimum mean-training-loss cell",
+      "method": "muPC",
+      "frozen_hidden_matrices": "W1-W121",
+      "contrast": "full training minus frozen block",
+      "selection": "selected from C3 mean training loss",
+      "selection_seeds": [
+        0,
+        1,
+        2
+      ],
+      "evaluation_seed_overlap_with_selection": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "n": 5,
+      "mean_pp": -0.8293258666992187,
+      "sd_pp": 0.3278181771066722,
+      "ci95_pp": [
+        -1.236365895169359,
+        -0.42228583822907845
+      ],
+      "differences_pp": [
+        -0.88140869140625,
+        -0.4707489013671875,
+        -0.6911087036132812,
+        -0.7511978149414062,
+        -1.3521652221679688
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "condition": "C3 minimum mean-training-loss cell",
+      "method": "muPC",
+      "frozen_hidden_matrices": "W122-W127",
+      "contrast": "full training minus frozen block",
+      "selection": "selected from C3 mean training loss",
+      "selection_seeds": [
+        0,
+        1,
+        2
+      ],
+      "evaluation_seed_overlap_with_selection": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "n": 5,
+      "mean_pp": 0.08012847900390625,
+      "sd_pp": 0.04189938677424694,
+      "ci95_pp": [
+        0.028103518899508885,
+        0.13215343910830363
+      ],
+      "differences_pp": [
+        0.08013153076171875,
+        0.10015869140625,
+        0.1201934814453125,
+        0.09014129638671875,
+        0.01001739501953125
+      ],
+      "seeds": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "condition": "C3 minimum final-100-loss cell",
+      "method": "muPC",
+      "frozen_hidden_matrices": "W1-W121",
+      "contrast": "full training minus frozen block",
+      "selection": "selected from C3 final-100-minibatch mean loss",
+      "selection_seeds": [
+        0,
+        1,
+        2
+      ],
+      "evaluation_seed_overlap_with_selection": []
+    },
+    {
+      "n": 5,
+      "mean_pp": 4.753607177734375,
+      "sd_pp": 0.26834656602271134,
+      "ci95_pp": [
+        4.420410907662365,
+        5.0868034478063855
+      ],
+      "differences_pp": [
+        4.58734130859375,
+        4.427085876464844,
+        4.8076934814453125,
+        4.8076934814453125,
+        5.138221740722656
+      ],
+      "seeds": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "condition": "C3 minimum final-100-loss cell",
+      "method": "muPC",
+      "frozen_hidden_matrices": "W122-W127",
+      "contrast": "full training minus frozen block",
+      "selection": "selected from C3 final-100-minibatch mean loss",
+      "selection_seeds": [
+        0,
+        1,
+        2
+      ],
+      "evaluation_seed_overlap_with_selection": []
+    }
+  ],
+  "notebook_method_contrast": {
+    "n": 5,
+    "mean_pp": 1.0416717529296875,
+    "sd_pp": 0.3427479884710581,
+    "ci95_pp": [
+      0.6160939151884159,
+      1.467249590670959
+    ],
+    "differences_pp": [
+      0.9114608764648438,
+      1.552490234375,
+      1.211944580078125,
+      0.8413543701171875,
+      0.6911087036132812
+    ],
+    "condition": "published notebook learning rates",
+    "methods": "backpropagation minus muPC freeze penalty",
+    "frozen_hidden_matrices": "W1-W121",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "notes": [
+    "The notebook setting was fixed by the released configuration, not selected by C3.",
+    "For the minimum mean-loss cell, evaluation seed IDs 0 to 2 overlap the C3 selection seed IDs.",
+    "The final-100-loss cell was selected from the existing C3 grid and evaluated on seed IDs 5 to 9.",
+    "Freezing effects describe accuracy changes while the other trainable weights adapt."
+  ],
+  "sources": [
+    "results/freeze.json",
+    "results/c3.json",
+    "results/tail_freeze.json"
+  ]
+}
