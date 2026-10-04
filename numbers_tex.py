@@ -23,7 +23,7 @@ T975 = {1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776}
 
 
 def paired_ci(x, y):
-    """95% t interval of the per-seed difference x - y; both arms must share seeds."""
+    """95% t interval of the per-seed difference x - y. Both arms must share seeds."""
     assert x["seeds"] == y["seeds"], (x["seeds"], y["seeds"])
     d = [a - b for a, b in zip(x["final_accs"], y["final_accs"])]
     n = len(d)
@@ -89,7 +89,8 @@ def main():
         macros["cOneSpread"] = f"{c1['mupc_spread']:.2f}"
         macros["cOneMinRun"] = f"{c1['mupc_min_run']:.2f}"
         macros["cOneSpDeepMax"] = f"{c1['sp_deep_max']:.0f}" if c1["sp_deep_max"] is not None else "\\pending"
-        macros["cOneVerdict"] = "meets" if c1["pass"] else "does not meet"
+        macros["cOneVerdict"] = ("not evaluable" if c1["pass"] is None else
+                                  "meets" if c1["pass"] else "does not meet")
         macros["cOneAgreeConfigs"] = str(lvo["configs_compared"])
         macros["cOneAgreeRuns"] = str(sum(len(r["seeds"]) for r in lvo["rows"]))
         tested = [r for r in lvo["rows"] if r["lean_accs"]]

@@ -5,11 +5,11 @@ runs/lean_fig1 (lean_mupc.py). Writes results/c1.json.
 
 Criterion (stated in the paper, fixed before any run): muPC test accuracy at iteration
 900 is at least 90% at every H with a spread across depths of at most 3 pp.
-For SP PC at H in {64, 128}, a run either diverges before update 900 or has
-test accuracy at or below 15%. A divergent run without a test point is a
-training failure, not an accuracy measurement. final_accs keeps 10% as a
-plotting coordinate only; measured_accs records missing values as null.
-The verdict uses the lean runs, which cover every depth; the official runs
+For SP PC at H in {64, 128}, the accuracy condition is at or below 15%.
+A divergence before update 900 is a training failure, not evidence that the
+accuracy condition was met. final_accs keeps 10% as a plotting coordinate
+only. measured_accs records missing values as null.
+The verdict uses the lean runs, which cover every depth. The official runs
 at H <= 32 are listed beside them.
 Usage: python c1_summary.py
 """
@@ -75,18 +75,22 @@ if complete:
     sp_runs = [(acc, stop, n) for r in sp_deep
                for acc, stop, n in zip(r["measured_accs"], r["stop_reasons"], r["iterations"])]
     sp_values = [acc for acc, _, _ in sp_runs if acc is not None]
-    sp_outcomes = [(stop == "diverged" and n is not None and n < 900) or
-                   (acc is not None and acc <= 15.0) for acc, stop, n in sp_runs]
+    sp_accuracy_evaluable = all(acc is not None for acc, _, _ in sp_runs)
+    sp_diverged = [stop == "diverged" and n is not None and n < 900
+                   for _, stop, n in sp_runs]
     out.update({
         "mupc_min_mean": min(means), "mupc_max_mean": max(means),
         "mupc_spread": max(means) - min(means),
         "mupc_min_run": min(min(r["measured_accs"]) for r in mupc),
         "sp_deep_max": max(sp_values) if sp_values else None,
-        "sp_accuracy_evaluable": all(acc is not None for acc, _, _ in sp_runs),
+        "sp_accuracy_evaluable": sp_accuracy_evaluable,
+        "sp_diverged_before_test": sum(sp_diverged),
         "pass_mupc": min(means) >= 90.0 and max(means) - min(means) <= 3.0,
-        "pass_sp": all(sp_outcomes),
+        "pass_sp": (all(acc <= 15.0 for acc, _, _ in sp_runs)
+                    if sp_accuracy_evaluable else None),
     })
-    out["pass"] = out["pass_mupc"] and out["pass_sp"]
+    out["pass"] = (out["pass_mupc"] and out["pass_sp"]
+                   if out["pass_sp"] is not None else None)
 (HERE / "results" / "c1.json").write_text(json.dumps(out, indent=1) + "\n")
 for r in rows:
     mean = "unmeasured" if r["mean"] is None else f"{r['mean']:.2f}"

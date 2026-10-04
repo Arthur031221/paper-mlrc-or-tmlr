@@ -674,7 +674,8 @@
  "mupc_min_run": 96.36418151855469,
  "sp_deep_max": null,
  "sp_accuracy_evaluable": false,
+ "sp_diverged_before_test": 6,
  "pass_mupc": true,
- "pass_sp": true,
- "pass": true
+ "pass_sp": null,
+ "pass": null
 }
