@@ -9,8 +9,8 @@ For SP PC at H in {64, 128}, the accuracy condition is at or below 15%.
 A divergence before update 900 is a training failure, not evidence that the
 accuracy condition was met. final_accs keeps 10% as a plotting coordinate
 only. measured_accs records missing values as null.
-The verdict uses the lean runs, which cover every depth. The official runs
-at H <= 32 are listed beside them.
+The verdict uses the lean runs, which cover every depth. The official muPC
+runs through H = 64 are listed beside them.
 Usage: python c1_summary.py
 """
 import json
